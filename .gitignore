@@ -128,5 +128,19 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# LaTeX temporary files
+*.aux
+*.log
+*.toc
+*.out
+*.spl
+*.gz
+*.loc
+*.soc
+
+# BibTeX
+*.bbl
+*.blg
+
 # exclude reference folder
 references/*
