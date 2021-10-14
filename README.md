@@ -9,7 +9,7 @@ This repository includes materials and methods of the paper. A working document 
 
 # # Overview
 
-<img src="./_static//Sketch.jpg" width="80" height="54" align="left" alt="EU logo" />
+<img src="./_static//Sketch.jpg" align="center" alt="Sketch" />
 
 ## Acknowledgement
 
