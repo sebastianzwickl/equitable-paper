@@ -9,12 +9,14 @@ This repository includes materials and methods of the paper. A working document 
 
 # # Overview
 
-<img src="./_static//Sketch.jpg" width=75% height=75% align="center" alt="Sketch" />
+<p align="center" width="100%">
+	<img src="./_static//Sketch.jpg" width=75% height=75% align="center" alt="Sketch" />
+</p>
+
 
 ## Acknowledgement
 
 <img src="./_static/open_entrance-logo.png" width="202" height="129" align="right" alt="openENTRANCE logo" />
-
 This package is based on the work initially done in the
 [Horizon 2020 openENTRANCE](https://openentrance.eu) project, which aims to  develop,
 use and disseminate an open, transparent and integrated  modelling platform
