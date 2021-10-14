@@ -1,0 +1,131 @@
+\documentclass[review]{elsarticle}
+\input{packages.tex}
+
+\begin{document}
+\begin{frontmatter}
+
+\title{Justice in decarbonizing heating systems consistent with the Paris Climate Agreement: subsidy balance between landlords and tenants at the multi-apartment building level}
+\author[1]{Sebastian Zwickl-Bernhard\corref{cor1}}
+\ead{zwickl@eeg.tuwien.ac.at}
+\author[1]{Hans Auer}
+\author[1]{Antonia Golab}
+\cortext[cor1]{Corresponding author}
+\address[1]{Energy Economics Group (EEG), Technische Universität Wien, Gusshausstrasse 25-29/E370-3, 1040 Wien, Austria}
+
+\begin{abstract}
+
+\end{abstract}
+
+\begin{keyword}
+	
+\end{keyword}
+\end{frontmatter}
+
+\newpage
+\section*{Nomenclature}
+\begin{center}
+	\renewcommand{\arraystretch}{1.1}
+	\centering
+	\small
+	\begin{tabular}{lm{8cm}r}
+		Type & Description & Unit\\
+		\hline
+		Set and index & & \\
+		\hline
+		
+		{$y \in \mathcal{Y}=\{1,\ldots,Y\}$} & Years, index by $y$\\
+		{$m \in \mathcal{M}=\{1,\ldots,M\}$} & Months, index by $m$\\
+		
+		\hline
+		Decision variables\\
+		\hline
+		{$inv_{grant}$} & Landlord's investment grants & \SI{}{EUR}\\
+		{$sub_{heat,y,m}$} & Tenant's heating costs subsidy in $y$ and $m$ & \SI{}{EUR}\\
+		{$q_{init,y,m}$} & Heat demand supplied by the initial heating system & \SI{}{kWh}\\
+		{$q_{alt,y,m}$} & Heat demand supplied by the heating system alternative & \SI{}{kWh}\\
+		{$\Pi_{alt}$} & Newly installed heating system alternative capacity & \SI{}{kW}\\
+		{$r_{y,m}$} & Rent charge adjustment in $y$ and $m$ & \SI{}{EUR\per m^2}\\
+		\hline
+		Parameters\\
+		\hline
+		{$n_{ten}$} & Number of tenants & \SI{}{1}\\
+		{$i$} & Interest rate & \SI{}{\%}\\
+		{$q_{load,y,m}$} & Total heat demand in $y$ and $m$ & \SI{}{kWh}\\
+		{$\alpha_{m}$} & Ratio between total heat demand and peak load in $m$ & \SI{}{1}\\
+		{$c_{alt,hs}$} & Specific heating system alternative investment costs & \SI{}{EUR \per kW}\\
+		{$c_{alt,con}$} & Heating system alternative construction costs & \SI{}{EUR}\\
+		{$\bar{r}$} & Initial rent price & \SI{}{EUR \per m^2}\\
+		{$a$} & Rented area per tenant & \SI{}{m^2}\\
+		{$p_{init,y}$} & Energy price fueling the initial heating system & \SI{}{EUR \per kWh}\\
+		{$p_{alt,y,m}$} & Energy price fueling the heating system alternative & \SI{}{EUR \per kWh}\\
+		\hline
+	\end{tabular}
+\end{center}
+\newpage
+
+\input{1_Introduction.tex}
+\input{2_Stateoftheart.tex}
+\input{3_Methodology.tex}
+\input{4_Results.tex}
+\input{5_Conclusions.tex}
+
+\section*{Declaration of interests}
+None.
+\section*{Declaration of Competing Interest}
+The authors report no declarations of interest.
+\section*{Acknowledgments}
+This project has received funding from the European Union's Horizon 2020 Research and Innovation Programme under Grant Agreement No. 835896. The authors acknowledge TU Wien Bibliothek for financial support through its Open Access Funding Programme.
+
+\bibliography{mybibfile}
+\appendix
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
+
+\section{Empirical settings of the small case example}\label{app:verify}
+\begin{table}[h]
+	\centering
+	\scalebox{0.85}{
+		\renewcommand{\arraystretch}{1.35}
+		\begin{tabular}{llr}
+			\toprule 
+			Variable & Unit & Value\\\hline
+			Heat pump investment costs & \SI{}{EUR \per kW} & \SI{1000}{}\\
+			Construction costs & \SI{}{EUR} & \SI{1000}{}\\
+			Initial rent price & \SI{}{EUR \per m^2} & \SI{10}{}\\
+			Rented area & \SI{}{m^2} & \SI{100}{}\\	
+			Total heat demand & \SI{}{kWh} & \SI{22000}{}\\		
+			Peak heat demand & \SI{}{kW} & \SI{13}{}\\	
+			CO\textsubscript{2} price (2025-2034) & \SI{}{EUR \per tCO_{2}} & \SI{50}{}\\
+			CO\textsubscript{2} price (2035-2040) & \SI{}{EUR \per tCO_{2}} & \SI{100}{}\\
+			Natural gas price & \SI{}{EUR \per kWh} & \SI{0.05}{}\\
+			Electricty price & \SI{}{EUR \per kWh} & \SI{0.2}{}\\
+			Specific emissions of electricity & \SI{}{kgCO_{2} \per kWh} & \SI{0.130}{}\\
+			\bottomrule
+	\end{tabular}}
+	\caption{Data assumptions of the small case example}
+	\label{tab:a2}
+\end{table}
+
+%\definecolor{Gray}{gray}{0.85}
+%\begin{table}[h]
+%	\centering
+%	\setlength{\extrarowheight}{.5em}
+%	\scalebox{0.85}{
+%		\begin{tabular}{ccccc|l}
+%			\toprule
+%			\underline{Source} & \underline{Requirements} & Rural & Town/Mixed & Urban&\multirow{2}{*}{\vtop{\hbox{\strut Supporting}\hbox{\strut references}}}\\
+%			Heat technology & Heat network & Sparse & Moderate & Dense&\\\hline
+%			Biomass & Median & &  \cellcolor{Gray}x & \cellcolor{Gray}x&\cite{vallios2009design,ericsson2016introduction, fruergaard2010energy}\\
+%			Direct electric & None &  x & x & x&\\
+%			Synthetic gas & Low & x & x & x&\\
+%			Hydrogen & High &  &  &  \cellcolor{Gray}x& \cite{jensen2020potential, dodds2015hydrogen, arsalis2019thermodynamic}\\
+%			Heat pump (air) & None &  x & x & x&\cite{yang2018using}\\
+%			Heat pump (ground) & High &  &  &  \cellcolor{Gray}x& \cite{kyriakis2016towards, unternahrer2017spatial, weinand2019developing}\\
+%			Heat storage & None &  x & x & x&\\
+%			\bottomrule
+%	\end{tabular}}
+%	\caption{Qualitative overview of heat generation technologies/sources and their requirements for heat network infrastructure. The prioritized preferences of heat sources in sub-regions are marked by the gray cell. In addition, selected references supporting this assumptions are cited.}
+%	\label{tab:require}
+%\end{table}
+\end{document}

@@ -1,0 +1,162 @@
+\newpage
+\section{Materials and methods}\label{methodology}
+This section explains the methodology and the optimization model developed in this work. The section starts with an introduction and overview of the model in Section \ref{met:intro}. This is followed by a detailed description of the mathematical formulation in Section \ref{met:formulas}. A case study description and empirical settings are presented in Section \ref{met:empirical}, and model validation is shown in Section \ref{met:validate}.
+
+\subsection{Introduction and overview of the model}\label{met:intro}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\linewidth]{figures/3_Methodology/Sketch.pdf}
+	\caption{}
+	\label{fig:methodology}
+\end{figure}
+
+
+
+
+
+\subsection{Mathematical formulation of the model}\label{met:formulas}
+
+\paragraph{Objective function}
+The objective function of the model is to minimize the governance's total costs for investment grants and subsidies. Therefore, the objective function can be written as follows: 
+\begin{align}\label{objective}
+\underset{x}{\mathrm{min~}} \underbrace{inv_{grant}}_\text{landlord} + \sum_{y} \sum_{m} n_{ten} \cdot \frac{1}{(1+i_g)^y} \cdot \underbrace{sub_{heat,y,m}}_\text{tenant}
+\end{align}
+
+where $inv_{grant}$ is the investment grant for the landlord and $sub_{heat,y,m}$ the tenant's subsidy for the heating costs in year $y$ and month $m$. In addition, $n_{ten}$ is the number of tenants\footnote{It is assumed that the multi-apartment building consists of $n_{ten}$ equal tenants. This is a simplification, however, in this paper we do not focus on the socially balanced between tenants, but on that between the landlord and the tenants.} and $i_g$ the governance's interest rate. The model's decision variables are included in the decision variable vector $x$.
+
+\paragraph{Decision variables}
+In order to improve the readability of the section, we explicitly list all the decision variables of the model using $x$
+\begin{align}
+\b{$x$}=[inv_{grant}, sub_{heat,y,m}, q_{init,y,m}, q_{alt,y,m}, \Pi_{alt}, r_{y,m}]
+\end{align}
+
+where $q_{init,y,m}$ is the quantity of heat demand supplied by the initial heating system using conventional fuels and $q_{alt,y,m}$ using the sustainable heating system alternative in $y$ and $m$. $\Pi_{alt}$ is the capacity of the newly installed heating system alternative and $r_{y,m}$ the rent charge in $y$ and $m$.
+
+\paragraph{Constraints} Equation \ref{c:demand} describes the load satisfaction in each time steps (year and month) 
+\begin{align}\label{c:demand}
+q_{load,y,m} \leq q_{init,y,m} + q_{alt,y,m} \quad :\forall y,m
+\end{align}
+
+where $q_{load,y,m}$ is the total heat demand of the multi-apartment building. Equation \ref{c:capacity} defines the minimum required newly installed capacity of the heating system alternative
+\begin{align}\label{c:capacity}
+\alpha_{m} \cdot q_{alt,y,m} \leq \Pi_{alt} \quad :\forall y,m
+\end{align}
+
+where $\alpha_{m}$ is a factor that transforms the amount of monthly heat demand to the corresponding peak demand (i.e., monthly heating system load factor). Equation \ref{c:investment} defines the landlord's investment costs ($costs_{inv}$)
+\begin{align}\label{c:investment}
+costs_{inv} = \Pi_{alt} \cdot (c_{alt,hs} + n_{ten} \cdot c_{alt,con}) - inv_{grant}
+\end{align}
+
+where $c_{alt,hs}$ is the specific investment costs of the heating system alternative and $c_{alt,con}$ the related construction costs associated with the heating system change. Equation \ref{c:revenues} sets the rent-related revenues of the landlord ($rev_{rent,y,m}$)
+\begin{align}\label{c:revenues}
+rev_{rent,y,m} = (\bar{r} + r_{y,m}) \cdot a \cdot n_{ten} \quad :\forall y,m
+\end{align}
+
+where $\bar{r}$ is the initial rent price, $r_{y,m}$ the additional rent charge resulting from the heating system change in $y$ and $m$ and $a$ the area of a tenant's dwelling. Equation \ref{c:npv} defines the landlord's net present value constraint and ensures economic viability of the heating system change
+\begin{align}\label{c:npv}
+-costs_{inv} + \sum_{y} \sum_{m} \frac{1}{(1+i_l)^y} \cdot rev_{rent,y,m} \geq 0
+\end{align}
+
+where $i_l$ is the landlord's interest rate. Equation \ref{c:ten1} describes the initial annual spendings of all tenants ($s_{y}$)
+\begin{align}\label{c:ten1}
+s_{y} = n_{ten} \cdot (\bar{r} \cdot a + \sum_{m} q_{load,y,m} \cdot p_{init,y}) \quad :y=y_0
+\end{align}
+
+where $p_{init,y}$ is the price of the conventional fuel initially supplying the heat demand. Building on this, Equation \ref{c:ten2} sets the tenants' total spendings ($s_{total}$)
+\begin{align}\label{c:ten2}
+s_{total} = -\sum_{y} \frac{1}{(1+i)^y} \cdot s_{y_0}
+\end{align}
+
+where $s_{y_0}$ represents the initial spendings from Equation \ref{c:ten1} above. Equation \ref{c:ten3} defines the total spendings of all tenants using the sustainable heating system alternative ($s_{alt}$)
+\begin{align}\label{c:ten3}
+	s_{alt} = -\sum_{y} \frac{n_{ten}}{(1+i)^y} \sum_{m}  (\bar{r} + r_{y,m})\cdot a + q_{alt,y,m} \cdot p_{alt,y,m}+sub_{heat,y,m}
+\end{align}
+
+and Equation \ref{c:ten4} ensures economic viability of the tenants (i.e., greater net present value than in the initial case) in case of the heating system change
+\begin{align}\label{c:ten4}
+s_{total} \leq s_{alt}
+\end{align}
+
+Equation \ref{c:final} defines the parity of the landlord's investment grant and rent charge as well as the tenants' heating costs subsidy and ensures socially balanced parity from an economic perspective at the multi-apartment building.
+
+\begin{align}\label{c:final}
+sub_{inv} = n_{ten} \left(\sum_{y} \sum_{m} \frac{1}{(1+i)^y} \cdot (sub_{heat,y,m} - r_{y,m})\right)
+\end{align}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Empirical settings and case study description}\label{met:empirical}
+
+
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+\definecolor{Gray}{gray}{0.95}
+\begin{table}[h]
+	\centering
+	\setlength{\extrarowheight}{.5em}
+	\scalebox{0.85}{
+		\begin{tabular}{cccc}
+			\toprule
+			Scenario  & Climat target & Heat pump & District heating \\\hline
+			Low CO\textsubscript{2} price development (LD) & none & \cellcolor{Gray} \checkmark & \cellcolor{Gray} \checkmark\\
+			\textit{Gradual Development} (GD) & \SI{2.0}{°C} & \cellcolor{Gray} \checkmark & \cellcolor{Gray} \checkmark\\
+			\textit{Societal Commitment} (SC) & \SI{1.5}{°C} & \cellcolor{Gray} \checkmark & -\\
+			\textit{Directed Transition} (DT) & \SI{1.5}{°C} & - & \cellcolor{Gray} \checkmark\\ 
+			\bottomrule
+	\end{tabular}}
+	\caption{}
+	\label{tab:scenarios}
+\end{table}
+
+Interest rate: 3 (governance),5 (tenants), 7 (landlord) percentage; inflation
+
+
+
+\subsection{Validation of the model}\label{met:validate}
+This section aims to test the presented model and its functionalities. However, a model validation using existing empirical data can not be applied in this case. There is simply a lack of comparable data from real cases. Therefore, a small illustrative case study is chosen to demonstrate the main functionalities and to verify the model. We assume a single landlord and tenant in a representative single-family household implementing a heat pump. It is assumed that the landlord's and tenant's interest rate is equal (\SI{3}{\%}). A detailed description of the empirical settings can be found in \ref{app:verify}. Figure \ref{val:npv} shows the landlord's (a) and tenant's (b) net present value. 
+
+\begin{figure}[h]
+	\begin{subfigure}[c]{0.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/3_Methodology/Validate-Landlord.eps}
+		\subcaption{Development of landlord's net present value}
+		\label{fig:landlord}
+	\end{subfigure}
+	\begin{subfigure}[c]{0.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/3_Methodology/Validate-Tenant.eps}
+		\subcaption{Comparison of tenant's net present value}
+		\label{fig:tenant}
+	\end{subfigure}
+	\caption{Landlord's and tenant's net present value and equal financial support. The landlord reaches a net present value equal to zero in 2040 resulting from an investment grant and rent-charge related revenues. The tenant's net present value remains constant compared to the conventional heating system resulting from heating costs subsidy payments.}
+	\label{val:npv}
+\end{figure}
+
+Both agents receive equal financial support with a total of \SI{13750}{EUR}. One finfth of the landlord's support is paid as an investment grant and four-fifths as rent-charge related revenues. The tenant receives a heating costs subsidy. The level of financial support results exactly in (i) a landlord's net present value equal to zero within the time horizon of 15 years (see Figure \ref{fig:landlord}) and (ii) a constant remaining net present value of tenant compared to the conventional (existing) heating system (including the initial rent charge) (see Figure \ref{fig:tenant}). 
+
+\subsection{Development of an open-source package building on pyam}\label{open}
+%The method described will be released as an open-source Python package in the course of publishing this work at the author's GitHub account. In this package, we build on the existing open-source Python package \textit{pyam} \cite{huppmann2021pyam}. \textit{Pyam} is an open-source package for the analysis and visualization of integrated assessment and macro-energy scenarios. In this work, it is used particularly for (i) the linkage between the sequential and the iterative downscaling algorithms, (ii) the internal calculation steps within both downscaling algorithms, and (iii) the visualization of the results. Besides, we used the open-source Python package \textit{networkx} \cite{hagberg2008exploring}, when implementing the iterative downscaling algorithm. We refer to the repository for the codebase, data collection, and further information. 
+
+
+
+
+
+
+
+
+
+
