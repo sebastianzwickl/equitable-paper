@@ -7,9 +7,9 @@ Copyright (c) 2021 Energy Economics Group (EEG), Technische Universität Wien, S
 
 This repository includes materials and methods of the paper. A working document of the paper's structure can be found [here](working-documents/Structure-of-the-paper.docx).
 
-# # Methodological Overview
+# # Overview
 
-<img src="./manuscript/Figures/3_Methodology/Sketch.pdf" width="80" height="54" align="left" alt="EU logo" />
+<img src="./_static//Sketch.jpg" width="80" height="54" align="left" alt="EU logo" />
 
 ## Acknowledgement
 
