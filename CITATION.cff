@@ -1,0 +1,10 @@
+cff-version: 1.1.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Zwickl-Bernhard
+    given-names: Sebastian
+    orcid: https://orcid.org/0000-0002-8599-6278
+title: "MOJET (MOdeling Justice in the Energy Transition)"
+version: 0.1
+doi: -
+date-released: -
