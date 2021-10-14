@@ -10,7 +10,7 @@ This repository includes materials and methods of the paper. A working document 
 # # Overview
 
 <p align="center" width="100%">
-	<img src="./_static//Sketch.jpg" width=75% height=75% align="center" alt="Sketch" />
+	<img src="./_static//Sketch.jpg" width=50% height=50% align="center" alt="Sketch" />
 </p>
 
 
