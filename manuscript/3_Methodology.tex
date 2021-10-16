@@ -18,92 +18,91 @@ Figure \ref{fig:methodology} shows a sketch illustrating the interrelations betw
 \end{figure}
 
 \subsection{Mathematical formulation of the model}\label{met:formulas}
-\todo{15.10.2021}
-\paragraph{Objective function}
-The objective function of the model is to minimize the governance's total costs for investment grants and subsidies. Therefore, the objective function can be written as follows: 
+This section explains the mathematical formulation of the optimization model in detail. First, the objective function is defined. Then, a detailed explanation of the model's constraints is given. 
+
+\subsubsection{Model's objective function}
+The objective function of the model is to minimize governance's total costs, including investment grants and subsidy payments\footnote{This corresponds to the maximization of the governance's net present value.}. Therefore, the objective function can be written as follows: 
 \begin{align}\label{objective}
-\underset{x}{\mathrm{min~}} \underbrace{inv_{grant}}_\text{landlord} + \sum_{y} \sum_{m} n_{ten} \cdot \frac{1}{(1+i_g)^y} \cdot \underbrace{sub_{heat,y,m}}_\text{tenant}
+\underset{x}{\mathrm{min~}} \Psi + \sum_{y} \sum_{m} \frac{n}{(1+i_g)^y} \cdot \Omega_{y,m}
 \end{align}
 
-where $inv_{grant}$ is the investment grant for the landlord and $sub_{heat,y,m}$ the tenant's subsidy for the heating costs in year $y$ and month $m$. In addition, $n_{ten}$ is the number of tenants\footnote{It is assumed that the multi-apartment building consists of $n_{ten}$ equal tenants. This is a simplification, however, in this paper we do not focus on the socially balanced between tenants, but on that between the landlord and the tenants.} and $i_g$ the governance's interest rate. The model's decision variables are included in the decision variable vector $x$.
+where $\Psi$ is the investment grant paid tothe landlord and $\Omega_{y,m}$ the heating costs subsidy payment paid to a single tenant in year $y$ and month $m$. In addition, $n$ is the number of tenants\footnote{It is assumed that the multi-apartment building consists of $n$ equal tenants.} and $i_g$ the governance's interest rate. The model's decision variables are included in the decision variable vector $x$. We refer to the nomenclature at the beginning of the paper containing a list of all decision variables.
 
-\paragraph{Decision variables}
-In order to improve the readability of the section, we explicitly list all the decision variables of the model using $x$
-\begin{align}
-\b{$x$}=[inv_{grant}, sub_{heat,y,m}, q_{init,y,m}, q_{alt,y,m}, \Pi_{alt}, r_{y,m}]
-\end{align}
-
-where $q_{init,y,m}$ is the quantity of heat demand supplied by the initial heating system using conventional fuels and $q_{alt,y,m}$ using the sustainable heating system alternative in $y$ and $m$. $\Pi_{alt}$ is the capacity of the newly installed heating system alternative and $r_{y,m}$ the rent charge in $y$ and $m$.
-
-\paragraph{Constraints} Equation \ref{c:demand} describes the load satisfaction in each time steps (year and month) 
+\subsubsection{Model's constraints}
+Equation \ref{c:demand} describes the load satisfaction of the total heat demand within the multi-apartment building using the alternative heating system in each time step (year and month) 
 \begin{align}\label{c:demand}
-q_{load,y,m} \leq q_{init,y,m} + q_{alt,y,m} \quad :\forall y,m
+n \cdot d_{y,m} \leq q_{y,m} \quad :\forall y,m
 \end{align}
 
-where $q_{load,y,m}$ is the total heat demand of the multi-apartment building. Equation \ref{c:capacity} defines the minimum required newly installed capacity of the heating system alternative
+where $d_{y,m}$ is the total heat demand of a tenant's dwelling and $q_{y,m}$ the heat demand covered by the alternative heating system in $y$ and $m$. Building on this, Equation \ref{c:capacity} defines the minimum required newly installed capacity of the heating system alternative
 \begin{align}\label{c:capacity}
-\alpha_{m} \cdot q_{alt,y,m} \leq \Pi_{alt} \quad :\forall y,m
+\alpha_{m} \cdot q_{y,m} \leq \pi \quad :\forall y,m
 \end{align}
 
-where $\alpha_{m}$ is a factor that transforms the amount of monthly heat demand to the corresponding peak demand (i.e., monthly heating system load factor). Equation \ref{c:investment} defines the landlord's investment costs ($costs_{inv}$)
+where $\alpha_{m}$ is the load factor transforming the monthly amount of heat demand to the corresponding peak demand. Equation \ref{c:investment} defines the landlord's overnight investment costs ($\zeta$)
 \begin{align}\label{c:investment}
-costs_{inv} = \Pi_{alt} \cdot (c_{alt,hs} + n_{ten} \cdot c_{alt,con}) - inv_{grant}
+\zeta = \pi \cdot c_{alt} + n \cdot c_{con} - \Psi
 \end{align}
 
-where $c_{alt,hs}$ is the specific investment costs of the heating system alternative and $c_{alt,con}$ the related construction costs associated with the heating system change. Equation \ref{c:revenues} sets the rent-related revenues of the landlord ($rev_{rent,y,m}$)
+where $c_{alt}$ is the specific investment costs of the heating system alternative and $c_{con}$ the construction costs of an dwelling. Equation \ref{c:upper_inv_limit} defines the upper bound for the investment grant 
+\begin{align}\label{c:upper_inv_limit}
+\Psi \leq \hat{d} + n \cdot c_{con}
+\end{align}
+
+where $\hat{d}$ is the peak value of the heat demand. Equation \ref{c:revenues} defines the rent-related revenues of the landlord ($\lambda_{y,m}$)
 \begin{align}\label{c:revenues}
-rev_{rent,y,m} = (\bar{r} + r_{y,m}) \cdot a \cdot n_{ten} \quad :\forall y,m
+\lambda_{y,m} = a \cdot n \cdot (\bar{r} + r_{y,m}) \quad :\forall y,m
 \end{align}
 
-where $\bar{r}$ is the initial rent price, $r_{y,m}$ the additional rent charge resulting from the heating system change in $y$ and $m$ and $a$ the area of a tenant's dwelling. Equation \ref{c:npv} defines the landlord's net present value constraint and ensures economic viability of the heating system change
+where $\bar{r}$ is the initial rent price, $r_{y,m}$ the rent charge adjustment associated with the heating system change in $y$ and $m$ and $a$ the area of a tenant's dwelling. Equation \ref{c:npv} sets the landlord's net present value of the alternative heating system investment equal to zero
 \begin{align}\label{c:npv}
--costs_{inv} + \sum_{y} \sum_{m} \frac{1}{(1+i_l)^y} \cdot rev_{rent,y,m} \geq 0
+-\zeta + \sum_{y} \sum_{m} \frac{1}{(1+i_l)^y} \cdot \lambda_{y,m} = 0
 \end{align}
 
-where $i_l$ is the landlord's interest rate. Equation \ref{c:ten1} describes the initial annual spendings of all tenants ($s_{y}$)
+where $i_l$ is the landlord's interest rate. Equation \ref{c:ten1} defines the initial annual spendings of all tenants ($\kappa_{y}$) using the existing heating system 
 \begin{align}\label{c:ten1}
-s_{y} = n_{ten} \cdot (\bar{r} \cdot a + \sum_{m} q_{load,y,m} \cdot p_{init,y}) \quad :y=y_0
+\kappa_{y} = n \cdot (\bar{r} \cdot a + \sum_{m} q_{load,y,m} \cdot p_{init,y,m}) \quad :y=y_0
 \end{align}
 
-where $p_{init,y}$ is the price of the conventional fuel initially supplying the heat demand. Building on this, Equation \ref{c:ten2} sets the tenants' total spendings ($s_{total}$)
+where $p_{init,y,m}$ is the price of the conventional fuel initially supplying the heat demand in $y$ and $m$. Building on this, Equation \ref{c:ten2} sets the tenants' total spendings ($K_{init}$)
 \begin{align}\label{c:ten2}
-s_{total} = -\sum_{y} \frac{1}{(1+i)^y} \cdot s_{y_0}
+K_{init} = -\sum_{y} \frac{1}{(1+i_{t})^y} \cdot \kappa_{y_0}
 \end{align}
 
-where $s_{y_0}$ represents the initial spendings from Equation \ref{c:ten1} above. Equation \ref{c:ten3} defines the total spendings of all tenants using the sustainable heating system alternative ($s_{alt}$)
+where $\sigma_{y_0}$ represents the initial tenants' spendings from Equation \ref{c:ten1} above and $i_t$ the tenant's interest rate. Equation \ref{c:ten3} defines the total spendings of all tenants ($K_{alt}$) realizing the sustainable heating system alternative
 \begin{align}\label{c:ten3}
-	s_{alt} = -\sum_{y} \frac{n_{ten}}{(1+i)^y} \sum_{m}  (\bar{r} + r_{y,m})\cdot a + q_{alt,y,m} \cdot p_{alt,y,m}+sub_{heat,y,m}
+	K_{alt} = -\sum_{y} \sum_{m} \frac{n}{(1+i_{t})^y} \left(a \cdot (\bar{r} + r_{y,m}) + q_{y,m} \cdot p_{alt,y,m}-\Omega_{y,m} \right)
 \end{align}
 
-and Equation \ref{c:ten4} ensures economic viability of the tenants (i.e., greater net present value than in the initial case) in case of the heating system change
+and Equation \ref{c:ten4} defines constant remaining spendings (i.e., economic viability) for the tenants in case of the heating system change.
 \begin{align}\label{c:ten4}
-s_{total} \leq s_{alt}
+K_{alt} = K_{init}
 \end{align}
 
-Equation \ref{c:final} defines the parity of the landlord's investment grant and rent charge as well as the tenants' heating costs subsidy and ensures socially balanced parity from an economic perspective at the multi-apartment building.
+Equation \ref{c:con_sub} defines constant heat costs subsidy payments and Equation \ref{c:con_rent} constant total rent price for a tenant in $y$.
+\begin{alignat}{2}
+\Omega_{y,m} = \Omega_{y,m-1} \quad &:y\label{c:con_sub}\\
+\bar{r} + r_{y,m} = \bar{r} + r_{y,m-1} \quad &:y\label{c:con_rent}
+\end{alignat}
 
+Equation \ref{c:temp_rent} allows rent charge adjustment by the landlord only every two years and Equation \ref{c:rent_upper1} and \ref{c:rent_upper2} set a upper bound to the rent charge adjustment
+\begin{alignat}{3}
+\bar{r} + r_{y,m} = \bar{r} + r_{y-1,m} \quad &:\forall y\backslash \{y_0\},m~\text{if}~y~\text{mod}~2=0\label{c:temp_rent}\\
+\bar{r}+r_{y,m} \leq \rho \cdot \bar{r} \quad &:\forall y \in {y_0}\label{c:rent_upper1}\\
+\bar{r}+r_{y,m} \leq \rho \cdot \bar{r}+r_{y-1,m} \quad &:\forall y\backslash \{y_0\}\label{c:rent_upper2}
+\end{alignat}
+
+by introducing $\rho$, as the rent charge adjustment upper bound. Equation \ref{c:final} defines the financial support parity between the landlord and all tenants at the multi-apartment building level from the governance's perspective 
 \begin{align}\label{c:final}
-sub_{inv} = n_{ten} \left(\sum_{y} \sum_{m} \frac{1}{(1+i)^y} \cdot (sub_{heat,y,m} - r_{y,m})\right)
+\underbrace{\Psi +  n \cdot \sum_{y} \sum_{m} \frac{r_{y,m}}{(1+i_{g})^y}}_{\text{landlord's financial support}}= \underbrace{n \cdot \sum_{y} \sum_{m} \frac{\Omega_{y,m}}{(1+i_{g})^y}}_{\text{tenants' financial support}}
 \end{align}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 \subsection{Empirical settings and case study description}\label{met:empirical}
 \todo{18.10.2021}
+
+\subsubsection{Description of the multi-apartment building}
 
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
 \definecolor{Gray}{gray}{0.95}
@@ -124,8 +123,11 @@ sub_{inv} = n_{ten} \left(\sum_{y} \sum_{m} \frac{1}{(1+i)^y} \cdot (sub_{heat,y
 	\label{tab:scenarios}
 \end{table}
 
-Interest rate: 3 (governance),5 (tenants), 7 (landlord) percentage; inflation
+% TODO: Revelant empirical data 
 
+% TODO Interest rate: 3 (governance),5 (tenants), 7 (landlord) percentage; inflation
+
+\subsubsection{Scenario description}
 
 
 \subsection{Validation of the model}\label{met:validate}
