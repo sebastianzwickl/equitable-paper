@@ -259,7 +259,7 @@ def upper_bound_for_annual_tenants_costs(model, year):
         for month in model.set_months
     )
 
-    return annual_decarbonized_costs <= annual_initial_spendings
+    return annual_decarbonized_costs <= 1.5 * annual_initial_spendings
 
 
 def subsidy_rent_costs_increase(model, year, month):
