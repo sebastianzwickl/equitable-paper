@@ -80,7 +80,26 @@ This project has received funding from the European Union's Horizon 2020 Researc
 \appendix
 \setcounter{table}{0}
 \setcounter{figure}{0}
-
+\section{Data}\label{app:data}
+\begin{table}[h]
+	\centering
+	\scalebox{0.85}{
+		\renewcommand{\arraystretch}{1.35}
+		\begin{tabular}{llr}
+			\toprule 
+			Variable & Unit & Value\\\hline
+			Specific emissions$\vert$Electricity & \SI{}{kgCO_{2} \per kWh} & \SI{0.130}{}\\
+			Specific emissions$\vert$District heating & \SI{}{kgCO_{2} \per kWh} & \SI{0.130}{}\\
+			Specific emissions$\vert$Natural gas & \SI{}{kgCO_{2} \per kWh} & \SI{0.220}{}\\
+			Price$\vert$District heating & \SI{}{EUR \per kWh} & \SI{0.047}{}\\
+			Price$\vert$Natural gas & \SI{}{EUR \per kWh} & \SI{0.05}{}\\
+			Price$\vert$Electricity & \SI{}{EUR \per kWh} & \SI{0.2}{}\\
+			Coefficient of performance (heat pump) & \SI{}{1} & \SI{3}{}\\
+			\bottomrule
+	\end{tabular}}
+	\caption{2020's economic parameters and empirical settings}
+	\label{tab:a1}
+\end{table}
 
 \section{Empirical settings of the small case example}\label{app:verify}
 \begin{table}[h]
@@ -100,10 +119,10 @@ This project has received funding from the European Union's Horizon 2020 Researc
 			CO\textsubscript{2} price (2035-2040) & \SI{}{EUR \per tCO_{2}} & \SI{100}{}\\
 			Natural gas price & \SI{}{EUR \per kWh} & \SI{0.05}{}\\
 			Electricty price & \SI{}{EUR \per kWh} & \SI{0.2}{}\\
-			Specific emissions of electricity & \SI{}{kgCO_{2} \per kWh} & \SI{0.130}{}\\
+			Specific emissions$\vert$Electricity & \SI{}{kgCO_{2} \per kWh} & \SI{0.130}{}\\
 			\bottomrule
 	\end{tabular}}
-	\caption{Data assumptions of the small case example}
+	\caption{Small case example's parameters}
 	\label{tab:a2}
 \end{table}
 \end{document}
