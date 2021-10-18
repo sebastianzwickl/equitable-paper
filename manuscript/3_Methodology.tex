@@ -113,7 +113,7 @@ The \textit{Societal Commitment} (SC) scenario also leads to limiting the global
 
 The \textit{Gradual Development} (GD) scenario reaches a global temperature increase of \SI{2.0}{\degreeCelsius} and the corresponding climate target. In general, it is a very conservative expression of an European energy system future. This scenario includes a little of each sustainable development consisting of limited policy incentives, social acceptance, and technological advances. Both heating system alternatives (district heating connection and air-sourced heat pump installation) are examined. The CO\text{2} price in this scenario is between \SI{83}{EUR \per tCO_{2}} (in 2025) and \SI{261}{EUR \per tCO_{2}} (in 2040). Deep decarbonization of the European electricity and heating sector is achieved in $2050$.\vspace{0.5cm}
 
-In addition to the three openENTRANCE scenarios, the so-called "Low CO\textsubscript{2} price development" (LP) scenario is examined. This scenario neglects any remaining European CO\textsubscript{2} budget and misses both the  \SI{1.5}{\degreeCelsius} and \SI{2.0}{\degreeCelsius} climate target. Thus, decarbonizing the electricity and heating sector develops only sluggishly. Therefore, neither the CO\textsubscript{2} price nor the specific emissions of electricity and district heating significantly significantly changed compared to today's values. Again, both heating system alternatives are studied. The CO\text{2} price in this scenario is between \SI{60}{EUR \per tCO_{2}} (in 2025) and \SI{90}{EUR \per tCO_{2}} (in 2040). No target year achieving deep decarbonization of the European electricity and heating sector is set. Table \ref{tab:scenarios} summarizes the scenarios and the corresponding heating system alternative implemented. 
+In addition to the three openENTRANCE scenarios, the so-called "Low CO\textsubscript{2} price development" (LP) scenario is examined. This scenario neglects any remaining European CO\textsubscript{2} budget and misses both the  \SI{1.5}{\degreeCelsius} and \SI{2.0}{\degreeCelsius} climate target. Thus, decarbonizing the electricity and heating sector develops only sluggishly. Therefore, neither the CO\textsubscript{2} price nor the specific emissions of electricity and district heating significantly significantly changed compared to today's values. Again, both heating system alternatives are studied. The CO\text{2} price in this scenario is between \SI{60}{EUR \per tCO_{2}} (in 2025) and \SI{90}{EUR \per tCO_{2}} (in 2040). No target year achieving deep decarbonization of the European electricity and heating sector is set.
 
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
 \definecolor{Gray}{gray}{0.95}
@@ -133,15 +133,56 @@ In addition to the three openENTRANCE scenarios, the so-called "Low CO\textsubsc
 	\caption{Four different scenarios are studied, including three ambitious deep decarbonization scenarios, developed in the Horizon 2020 project openENTRANCE and a low CO\textsubscript{2} price development scenario. The scenario specific heating system alternative is marked by the check.}
 	\label{tab:scenarios}
 \end{table}
+Table \ref{tab:scenarios} summarizes the scenarios and the corresponding heating system alternative implemented. 
 \subsubsection{Empircial settings}\label{sec:data}
-% Tabelle zeigt eine übersicht über die relevantesten Daten. Diese betreffen A, B und C. Weitere Informationen sind dem Anhang zu entnehmen. 
-% TODO: Revelant empirical data 
-% TODO Interest rate: 3 (governance),5 (tenants), 7 (landlord) percentage; inflation
+Table \ref{tab:values} contains the empirical settings of the multi-apartment building including the agent's specific interest rates and further economic parameters. 
 
+\begin{table}[h]
+	\centering
+	\scalebox{0.85}{
+		\renewcommand{\arraystretch}{1.35}
+		\begin{tabular}{llr}
+			\toprule 
+			Variable & Unit & Value\\\hline
+			Number of tenants & - & \SI{30}{}\\
+			Governance's interest rate & \SI{}{\%} & $3$\\
+			Landlord's interest rate & \SI{}{\%} & $10$\\
+			Tenant's interest rate & \SI{}{\%} & $5$\\
+			Heat demand (per dwelling) & \SI{}{kWh} & $8620$\\	
+			Peak heat demand (per dwelling) & \SI{}{kW} & $5$\\
+			Heat pump$\vert$Investment costs & \SI{}{EUR \per kW} & $1000$\\
+			Heat pump$\vert$Construction costs (per dwelling)& \SI{}{EUR} & $1000$\\
+			District heating$\vert$Investment costs & \SI{}{EUR \per kW} & $320$\\
+			District heating$\vert$Construction costs (per dwelling) & \SI{}{EUR} & $2000$\\
+			Initial rent price & \SI{}{EUR \per m^2} & $10$\\
+			Maximum rent charge adjustment ($\rho$) & \SI{}{\%} & $10$\\
+			Rented area (per dwelling) & \SI{}{m^2} & $60$\\
+			\bottomrule
+	\end{tabular}}
+	\caption{Data assumptions of the multi-apartment building and its agents (landlord, tenants, and governance)}
+	\label{tab:values}
+\end{table}
 
+Table \ref{tab:time} contains the data with a temporal development (e.g., CO\textsubscript{2} price, specific emissions of the district heating supply, etc.). 
 
+\begin{table}[h]
+	\centering
+	\scalebox{0.85}{
+		\renewcommand{\arraystretch}{1.35}
+		\begin{tabular}{ccc|c|c|c|c}
+			\toprule 
+			Scenario & Variable & Unit & $2020$ & $2025-30$ & $2030-35$ & $2035-40$\\\hline
+			DT & CO\textsubscript{2} price & \SI{}{EUR \per tCO\textsubscript{2}} & $30$ & $196$ & $357$ & $510$\\
+			SC & CO\textsubscript{2} price & \SI{}{EUR \per tCO\textsubscript{2}} & $30$ & $62$ & $137$ & $273$\\
+			GD & CO\textsubscript{2} price & \SI{}{EUR \per tCO\textsubscript{2}} & $30$ & $83$ & $128$ & $183$\\
+			LP & CO\textsubscript{2} price & \SI{}{EUR \per tCO\textsubscript{2}} & $30$ & $60$ & $70$ & $80$\\
+			\bottomrule
+	\end{tabular}}
+	\caption{Empirical settings of the data with a temporal development between $2020$ and $2040$}
+	\label{tab:time}
+\end{table}
 
-
+Further empirical settings can be found in \ref{app:data}.
 
 \subsection{Validation of the model}\label{met:validate}
 This section aims to test the presented model and its functionalities. However, a model validation using existing empirical data can not be applied in this case. There is simply a lack of comparable data from real cases. Therefore, a small illustrative case study is chosen to demonstrate the main functionalities and to verify the model. We assume a single landlord and tenant in a representative single-family household implementing a heat pump. It is assumed that the landlord's and tenant's interest rate is equal (\SI{3}{\%}). A detailed description of the empirical settings can be found in \ref{app:verify}. Figure \ref{val:npv} shows the landlord's (a) and tenant's (b) net present value. 
