@@ -1,11 +1,12 @@
-cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
-authors:
-- family-names: "Zwickl-Bernhard"
-  given-names: "Sebastian"
-  orcid: "https://orcid.org/0000-0002-8599-6278"
+# YAML 1.2
+---
+authors: 
+cff-version: "1.1.0"
+date-released: Technische Universität Wien, Energy Economics Group (EEG)
+doi: Sebastian
+license: "Zwickl-Bernhard"
+message: "If you use this software, please cite it using these metadata."
+repository-code: "0000-0002-8599-6278"
 title: "MOJET (MOdeling Justice in the Energy Transition)"
-version: 0.1
-doi: -
-date-released: 2021-12-31
-url: "https://github.com/sebastianzwickl/justice-decarbonizing-heat"
+version: "0.1"
+...
