@@ -9,7 +9,7 @@ This repository includes materials and methods of the paper. A working document 
 
 # # Current state of the manuscript 
 - [ ] Introduction
-- [ ] State of the art
+- [ ] State of the art (under construction)
 - [x] Methodology (full draft)
 - [ ] Results
 - [ ] Sensitivity analysis
@@ -17,7 +17,7 @@ This repository includes materials and methods of the paper. A working document 
 
 # # Overview
 
-<p align="center" width="100%">
+<p align="left" width="125%">
 	<img src="./_static//Sketch.jpg" width=50% height=50% align="center" alt="Sketch" />
 </p>
 
