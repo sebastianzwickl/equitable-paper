@@ -5,7 +5,7 @@ Copyright (c) 2021 Energy Economics Group (EEG), Technische Universität Wien, S
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-This repository includes materials and methods of the paper. A working document of the paper's structure can be found [here](working-documents/Structure-of-the-paper.docx).
+This repository includes materials and methods of the paper. A working document of the paper's structure can be found [here](work-doc/Structure-of-the-paper.docx).
 
 # # Current state of the manuscript 
 - [ ] Introduction
