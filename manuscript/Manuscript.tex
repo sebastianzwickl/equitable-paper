@@ -23,7 +23,6 @@
 \end{frontmatter}
 
 \newpage
-\todo{Thursday 28.10.2021}
 \section*{Nomenclature}
 \begin{center}
 	\renewcommand{\arraystretch}{1.1}
@@ -41,23 +40,24 @@
 		\hline
 		Decision variables\\
 		\hline
-		{$inv_{grant}$} & Landlord's investment grants & \SI{}{EUR}\\
-		{$sub_{heat,y,m}$} & Tenant's heating costs subsidy in $y$ and $m$ & \SI{}{EUR}\\
-		{$q_{init,y,m}$} & Heat demand supplied by the initial heating system & \SI{}{kWh}\\
-		{$q_{alt,y,m}$} & Heat demand supplied by the heating system alternative & \SI{}{kWh}\\
-		{$\Pi_{alt}$} & Newly installed heating system alternative capacity & \SI{}{kW}\\
+		{$\Psi$} & Investment grant paid to the landlord & \SI{}{EUR}\\
+		{$\Omega_{y,m}$} & Heating costs subsidy payment for a single tenant in $y$ and $m$ & \SI{}{EUR}\\
+		{$d_{y,m}$} & Total heat demand per dwelling & \SI{}{kWh}\\
+		{$q_{y,m}$} & Heat demand supplied by the heating system alternative & \SI{}{kWh}\\
+		{$\pi$} & Newly installed heating system alternative capacity & \SI{}{kW}\\
 		{$r_{y,m}$} & Rent charge adjustment in $y$ and $m$ & \SI{}{EUR\per m^2}\\
 		\hline
-		Parameters\\
+		Relevant parameters\\
 		\hline
-		{$n_{ten}$} & Number of tenants & \SI{}{1}\\
+		{$n$} & Number of tenants within the multi-apartment building & \SI{}{1}\\
 		{$i$} & Interest rate & \SI{}{\%}\\
 		{$q_{load,y,m}$} & Total heat demand in $y$ and $m$ & \SI{}{kWh}\\
-		{$\alpha_{m}$} & Ratio between total heat demand and peak load in $m$ & \SI{}{1}\\
-		{$c_{alt,hs}$} & Specific heating system alternative investment costs & \SI{}{EUR \per kW}\\
-		{$c_{alt,con}$} & Heating system alternative construction costs & \SI{}{EUR}\\
+		{$\alpha_{m}$} & Monthly load factor (ratio between total and peak heat demand) in $m$ & \SI{}{1}\\
+		{$c_{alt}$} & Specific heating system alternative investment costs & \SI{}{EUR \per kW}\\
+		{$c_{con}$} & Heating system alternative construction costs & \SI{}{EUR}\\
 		{$\bar{r}$} & Initial rent price & \SI{}{EUR \per m^2}\\
-		{$a$} & Rented area per tenant & \SI{}{m^2}\\
+		{$\rho$} & Upper bound of the biannual rent charge adjustment & \SI{}{\%}\\
+		{$a$} & Rented area per tenant/dwelling & \SI{}{m^2}\\
 		{$p_{init,y}$} & Energy price fueling the initial heating system & \SI{}{EUR \per kWh}\\
 		{$p_{alt,y,m}$} & Energy price fueling the heating system alternative & \SI{}{EUR \per kWh}\\
 		\hline
