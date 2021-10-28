@@ -26,7 +26,7 @@ The objective function of the model is to minimize governance's total costs, inc
 \underset{x}{\mathrm{min~}} \Psi + \sum_{y} \sum_{m} \frac{n}{(1+i_g)^y} \cdot \Omega_{y,m}
 \end{align}
 
-where $\Psi$ is the investment grant paid tothe landlord and $\Omega_{y,m}$ the heating costs subsidy payment paid to a single tenant in year $y$ and month $m$. In addition, $n$ is the number of tenants\footnote{It is assumed that the multi-apartment building consists of $n$ equal tenants.} and $i_g$ the governance's interest rate. The model's decision variables are included in the decision variable vector $x$. We refer to the nomenclature at the beginning of the paper containing a list of all decision variables.
+where $\Psi$ is the investment grant paid to the landlord and $\Omega_{y,m}$ the heating costs subsidy payment paid to a single tenant in year $y$ and month $m$. In addition, $n$ is the number of tenants\footnote{It is assumed that the multi-apartment building consists of $n$ equal tenants.} and $i_g$ the governance's interest rate. The model's decision variables are included in the decision variable vector $x$. We refer to the nomenclature at the beginning of the paper containing a list of all decision variables.
 
 \subsubsection{Model's constraints}
 Equation \ref{c:demand} describes the load satisfaction of the total heat demand within the multi-apartment building using the alternative heating system in each time step (year and month) 
@@ -46,7 +46,7 @@ where $\alpha_{m}$ is the load factor transforming the monthly amount of heat de
 
 where $c_{alt}$ is the specific investment costs of the heating system alternative and $c_{con}$ the construction costs of an dwelling. Equation \ref{c:upper_inv_limit} defines the upper bound for the investment grant 
 \begin{align}\label{c:upper_inv_limit}
-\Psi \leq \hat{d} + n \cdot c_{con}
+\Psi \leq \hat{d} \cdot c_{alt} + n \cdot c_{con}
 \end{align}
 
 where $\hat{d}$ is the peak value of the heat demand. Equation \ref{c:revenues} defines the rent-related revenues of the landlord ($\lambda_{y,m}$)
