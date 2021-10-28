@@ -9,7 +9,7 @@ This repository includes materials and methods of the paper. A working document 
 
 # # Current state of the manuscript 
 - [ ] Introduction
-- [ ] State of the art (full draft)
+- [x] State of the art (full draft)
 - [x] Methodology (full draft)
 - [ ] Results
 - [ ] Sensitivity analysis
