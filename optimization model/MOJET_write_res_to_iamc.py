@@ -55,7 +55,6 @@ def write_results_to_ext_iamc_format(m, res_dir):
     
     _time = [_t for _t in m.set_years]
     _value = []
-    
     for year in m.set_years:
         _value.append(sum(
             np.around(py.value(m.heat_subsidy[year, month]), 0)
@@ -63,18 +62,43 @@ def write_results_to_ext_iamc_format(m, res_dir):
             )
         )
     output_iamc = write_IAMC(
-        output_iamc, m.name, m.scenario, _region, "Annual tenants' heating cost subsidy", _unit, _time, _value
-    )
-    
+        output_iamc, m.name, m.scenario, _region,
+        "Annual tenants' heating cost subsidy", _unit, _time, _value)
 
     _value = []
     for year in m.set_years:
-        _value.append(np.around(py.value(m.total_rent[year, 1]), 2))
+        _value.append(np.around(py.value(m.r[year, 1]), 2))
     output_iamc = write_IAMC(
-        output_iamc, m.name, m.scenario, _region, "Monthly tenants' rent charge", _unit, _time, _value
+        output_iamc, m.name, m.scenario, _region,
+        "Monthly rent charge adjustment", r'EUR / m ** 2', _time, _value
+    )
+
+    _value = []
+    for year in m.set_years:
+        _val_1 = sum(py.value(m.heat_subsidy[year, month])
+                              for month in m.set_months)
+        _val_2 = sum(py.value(m.q_load[year, month])
+                              for month in m.set_months)
+        _value.append(np.around(_val_1/_val_2, 5))
+
+    output_iamc = write_IAMC(
+        output_iamc, m.name, m.scenario, _region,
+        "Specific heating costs subsidy payment", r'EUR / kWh', _time, _value)
+
+    _value = np.around(py.value(m.objective), 0)
+    output_iamc = write_IAMC(
+        output_iamc, m.name, m.scenario, _region,
+        "Objective value", _unit, 2025, _value
     )
     
-    output_iamc.to_excel(os.path.join(res_dir, "model-values.xlsx"), index=False)
+    _value = np.around(py.value(m.investment) / py.value(m.pi), 1)
+    output_iamc = write_IAMC(
+        output_iamc, m.name, m.scenario, _region,
+        "Specific investment grant", r'EUR / kW', 2025, _value
+    )
+
+    output_iamc.to_excel(os.path.join(res_dir, "model-values.xlsx"),
+                         index=False)
 
     # _unit = "MWh"
     

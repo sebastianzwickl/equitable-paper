@@ -16,12 +16,12 @@ _df_val = pyam.IamDataFrame(_data_folder / "input-values.xlsx")
 _df_time = pyam.IamDataFrame(_data_folder / "input-time-series.xlsx")
 
 _sets = utils.set_and_index(_df_time)
-_alt = "Heat pump"
-_scenario = "Low CO2 price"
+# _alt = "Heat pump"
+_scenario = "Directed Transition"
 
 
 # _scenario = "Directed Transition"
-# _alt = "District heating"
+_alt = "District heating"
 
 
 model = utils.create_and_initialize_the_model(_sets)
@@ -43,7 +43,9 @@ DEACTIVATE CONSTRAINTS HERE IF NECESSARY.
 # print(model.con9_limit_annual_decarbonized_spendings[2025].expr)
 # model.con9_limit_annual_decarbonized_spendings.deactivate()
 # model.con13_con_rent_over_two_years.deactivate()
-
+# model.con10_limit_lower_bound_of_subsidies.deactivate()
+# model.con13_con_rent_over_two_years.deactivate()
+# model.con14_increase_total_rent.deactivate()
 """
 SOLVING THE MODEL
 """
@@ -75,7 +77,8 @@ for i in range(2025, 2041, 1):
 for i in range(2025, 2041, 1):
     print(np.round(model.r[i, 1](), decimals=4))
 
-model.con4_tenants_profitability.display()
+
+# model.con4_tenants_profitability.display()
 
 _now = datetime.now().strftime("%Y%m%dT%H%M")
 _results_name = _alt + " " + _scenario

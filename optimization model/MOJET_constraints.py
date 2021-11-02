@@ -111,7 +111,7 @@ def tenants_positive_npv(model):
         * (
             -model.r_bar * model.a
             - model.q_load[2025, month]
-            * (model.p_init[2025, month] + 0.00022 * model.p_CO2[2025, month])
+            * (model.p_init[2025, month] + 0.00022 * 60)
         )
         for year in model.set_years
         for month in model.set_months
@@ -259,7 +259,48 @@ def upper_bound_for_annual_tenants_costs(model, year):
         for month in model.set_months
     )
 
-    return annual_decarbonized_costs <= 1.5 * annual_initial_spendings
+    return annual_decarbonized_costs <= 1.50 * annual_initial_spendings
+
+
+def lower_bound_for_annual_tenants_costs(model, year):
+    """
+    Set constant subsidy per month within a single year.
+
+    Parameters
+    ----------
+    model : py.ConcreteModel
+        Includes the pyomo model instance.
+    year : py.Set
+        Includes the year.
+    month : py.Set
+        Includes the month.
+
+    Returns
+    -------
+    py.Constraint
+        A single constraint for the model.
+
+    """
+    annual_rent_spendings = model.r_bar * model.a * 12
+    annual_energy_spendings = sum(
+        model.q_load[2025, month]
+        * (model.p_init[2025, month] + 0.00022 * model.p_CO2[2025, month])
+        for month in model.set_months
+    )
+    annual_initial_spendings = annual_rent_spendings + annual_energy_spendings
+
+    annual_decarbonized_costs = sum(
+        (model.r_bar + model.r[year, month]) * model.a
+        + model.q_load[year, month]
+        * (
+            model.p_alt[year, month]
+            + model.factor_CO2[year, month] * model.p_CO2[year, month]
+        )
+        - model.heat_subsidy[year, month]
+        for month in model.set_months
+    )
+
+    return annual_initial_spendings * 0.85 <= annual_decarbonized_costs
 
 
 def subsidy_rent_costs_increase(model, year, month):
@@ -303,11 +344,11 @@ def constant_total_rent_within_two_years_and_maximum_increase(model, year, month
         return model.total_rent[year, month] == model.total_rent[year - 1, month]
     else:
         if year == 2025:
-            return model.total_rent[year, month] <= 1.1 * model.r_bar
+            return model.total_rent[year, month] <= 1.025 * model.r_bar
         else:
             return (
                 model.total_rent[year, month]
-                <= 1.1 * model.total_rent[year - 1, month]
+                <= 1.025 * model.total_rent[year - 1, month]
             )
 
 
@@ -337,7 +378,8 @@ def increase_total_rent(model, year):
 def add_constraints_to_model(model=None):
 
     model.con1_cover_demand = py.Constraint(
-        model.set_years, model.set_months, rule=constraint_cover_total_monthly_demand
+        model.set_years, model.set_months,
+        rule=constraint_cover_total_monthly_demand
     )
     model.con2_cover_peak_demand = py.Constraint(
         model.set_years, model.set_months, rule=constraint_cover_peak_demand
@@ -365,6 +407,10 @@ def add_constraints_to_model(model=None):
 
     model.con9_limit_annual_decarbonized_spendings = py.Constraint(
         model.set_years, rule=upper_bound_for_annual_tenants_costs
+    )
+
+    model.con9_1_limit_annual_decarbonized_spendings = py.Constraint(
+        model.set_years, rule=lower_bound_for_annual_tenants_costs
     )
 
     model.con10_limit_lower_bound_of_subsidies = py.Constraint(

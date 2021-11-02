@@ -265,11 +265,13 @@ def add_decision_variables(m):
     m.investment = py.Var(domain=py.NonNegativeReals)
     m.subsidy = py.Var(domain=py.NonNegativeReals)
     m.pi = py.Var(domain=py.NonNegativeReals)
-    m.heat_subsidy = py.Var(m.set_years, m.set_months, domain=py.NonNegativeReals)
+    m.heat_subsidy = py.Var(m.set_years, m.set_months,
+                            domain=py.NonNegativeReals)
     m.q_alt = py.Var(m.set_years, m.set_months, domain=py.NonNegativeReals)
     m.r = py.Var(m.set_years, m.set_months, domain=py.NonNegativeReals)
     m.rent_revenues = py.Var(domain=py.NonNegativeReals)
-    m.total_rent = py.Var(m.set_years, m.set_months, domain=py.NonNegativeReals)
+    m.total_rent = py.Var(m.set_years, m.set_months,
+                          domain=py.NonNegativeReals)
 
     return m
 
@@ -284,11 +286,27 @@ def tenant_subsidies(model, year):
 
 
 def objective_function_maximize_revenues(m):
+    """Model's objective function minimizing governance's net present value."""
     return m.investment + m.subsidy
 
 
 def add_objective_function(m):
-    # This constraint calculates the total tentants-related subsidies (see 'def tenant_subsidies' above)
+    """
+    Includes the objective function of the model.
+
+    Parameters
+    ----------
+    m : pyomo.ConcreteModel
+        The model instance.
+
+    Returns
+    -------
+    m : pyomo.ConcreteModel
+        The concrete modele instance with objective function added.
+
+    """
+    # This constraint calculates the total tentants-related subsidies
+    # (see 'def tenant_subsidies' above)
     m.tenant_subsidy = py.Constraint(m.set_init_year, rule=tenant_subsidies)
 
     # Below, the objective function (cost-minimizing) is defined
