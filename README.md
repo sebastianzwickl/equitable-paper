@@ -8,9 +8,9 @@ Copyright (c) 2021 Energy Economics Group (EEG), Technische Universität Wien, S
 This repository includes materials and methods of the paper. A working document of the paper's structure can be found [here](work-doc/Structure-of-the-paper.docx).
 
 # # Current state of the manuscript 
-- [ ] Introduction
-- [x] State of the art (full draft)
-- [x] Methodology (full draft)
+- [x] Introduction (draft)
+- [x] State of the art (draft)
+- [x] Methodology (draft)
 - [ ] Results
 - [ ] Sensitivity analysis
 - [ ] Conclusions
