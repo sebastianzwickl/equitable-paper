@@ -12,19 +12,38 @@ from pathlib import Path
 _data_folder = Path("data")
 # _data_folder = Path("validation")
 
-_df_val = pyam.IamDataFrame(_data_folder / "input-values.xlsx")
-_df_time = pyam.IamDataFrame(_data_folder / "input-time-series.xlsx")
-
-_sets = utils.set_and_index(_df_time)
-# _alt = "Heat pump"
-_scenario = "Directed Transition"
-
+# _alt = "District heating"
+_alt = "Heat pump"
 
 # _scenario = "Directed Transition"
-_alt = "District heating"
+_scenario = "Societal Commitment"
+# _scenario = "Gradual Development"
+# _scenario = "Low CO2 price"
+
+if _scenario == "Gradual Development":
+    _df_time = pyam.IamDataFrame(
+        _data_folder / "_input-time-series_GD_2050.xlsx")
+if _scenario == "Low CO2 price":
+    _df_time = pyam.IamDataFrame(
+        _data_folder / "_input-time-series_LOW.xlsx")
+if _scenario in ["Societal Commitment", "Directed Transition"]:
+    _df_time = pyam.IamDataFrame(
+        _data_folder / "input-time-series.xlsx")
+
+_df_val = pyam.IamDataFrame(_data_folder / "input-values.xlsx")
 
 
-model = utils.create_and_initialize_the_model(_sets)
+"""Sensitivity analysis"""
+sens = tuple([True, "10%"])
+if sens[0] is True:
+    _df_val = pyam.IamDataFrame(_data_folder / "input-values_10%.xlsx")
+    _df_time = pyam.IamDataFrame(_data_folder / "input-time-series_10%.xlsx")
+
+
+_sets = utils.set_and_index(_df_time)
+
+cop = 2.5
+model = utils.create_and_initialize_the_model(_sets, cop=cop)
 model = utils.add_input_values_to_model(model, _df_val, _alt)
 
 model.df_time = _df_time
@@ -43,7 +62,7 @@ DEACTIVATE CONSTRAINTS HERE IF NECESSARY.
 # print(model.con9_limit_annual_decarbonized_spendings[2025].expr)
 # model.con9_limit_annual_decarbonized_spendings.deactivate()
 # model.con13_con_rent_over_two_years.deactivate()
-# model.con10_limit_lower_bound_of_subsidies.deactivate()
+model.con10_limit_lower_bound_of_subsidies.deactivate()
 # model.con13_con_rent_over_two_years.deactivate()
 # model.con14_increase_total_rent.deactivate()
 """
@@ -78,10 +97,11 @@ for i in range(2025, 2041, 1):
     print(np.round(model.r[i, 1](), decimals=4))
 
 
-# model.con4_tenants_profitability.display()
-
 _now = datetime.now().strftime("%Y%m%dT%H%M")
-_results_name = _alt + " " + _scenario
+if sens[0] is True:
+    _results_name = _alt + " " + _scenario + sens[1] + str(cop)
+else:
+    _results_name = _alt + " " + _scenario
 result_dir = os.path.join("result", "{}-{}".format(_results_name, _now))
 if not os.path.exists(result_dir):
     os.makedirs(result_dir)

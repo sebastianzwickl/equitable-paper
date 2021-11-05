@@ -259,7 +259,7 @@ def upper_bound_for_annual_tenants_costs(model, year):
         for month in model.set_months
     )
 
-    return annual_decarbonized_costs <= 1.50 * annual_initial_spendings
+    return annual_decarbonized_costs <= 1.2 * annual_initial_spendings
 
 
 def lower_bound_for_annual_tenants_costs(model, year):
@@ -344,11 +344,11 @@ def constant_total_rent_within_two_years_and_maximum_increase(model, year, month
         return model.total_rent[year, month] == model.total_rent[year - 1, month]
     else:
         if year == 2025:
-            return model.total_rent[year, month] <= 1.025 * model.r_bar
+            return model.total_rent[year, month] <= 1.05 * model.r_bar
         else:
             return (
                 model.total_rent[year, month]
-                <= 1.025 * model.total_rent[year - 1, month]
+                <= 1.05 * model.total_rent[year - 1, month]
             )
 
 
