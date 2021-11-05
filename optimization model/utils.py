@@ -27,7 +27,7 @@ def set_and_index(data=None):
 #     return m.time["Spot"][t]
 
 
-def create_and_initialize_the_model(sets=None):
+def create_and_initialize_the_model(sets=None, cop=None):
 
     """
 
@@ -48,7 +48,7 @@ def create_and_initialize_the_model(sets=None):
     m.set_years = py.Set(initialize=sets[0])
     m.set_init_year = py.Set(initialize=[min(sets[0])])
     m.set_months = py.Set(initialize=sets[1])
-
+    m.cop = cop
     return m
 
 
@@ -182,7 +182,7 @@ def init_p_hp(model, year, month):
             variable="Price|Heat pump|Electricity", year=year, month=month
         )
         .data["value"]
-        .values
+        .values / model.cop
     )
 
 
@@ -202,7 +202,7 @@ def init_specific_elec_emissions(model, year, month):
             variable="Emissions|Heat pump|Electricity", year=year, month=month
         )
         .data["value"]
-        .values
+        .values / model.cop
     )
 
 
