@@ -3,6 +3,7 @@ import pyam
 from pathlib import Path
 import matplotlib.pyplot as plt
 import matplotlib as mlp
+import matplotlib.ticker as tkr
 
 plt.style.use(['science'])
 plt.rcParams['xtick.labelsize'] = 8
@@ -26,10 +27,27 @@ cmap = mlp.colors.LinearSegmentedColormap.from_list(
     'Custom cmap', ["#9B72AA", "#77ACF1", "#FFB319"], cmap.N)
 
 data.plot.bar(ax=ax, x="scenario", stacked=True,
-              title="Governance\'s net present value in EUR",
+              title="Subsidiziation from the governance in EUR",
               bars_order=None, cmap=cmap)
 
+ax.text(x=2, y=-20000, s='$\it{Infeasible}$', rotation=90, va="top",
+        ha="center")
+
+ax.text(x=5, y=-20000, s='$\it{Infeasible}$', rotation=90, va="top",
+        ha="center")
+
 ax.set_ylabel("")
+
+c_edge = "#161616"
+leg = ax.legend(loc='lower left', framealpha=1, handlelength=1,
+                handletextpad=1, borderpad=0.25, columnspacing=1,
+                edgecolor=c_edge, frameon=True,
+                bbox_to_anchor=(0.0125, 0.03))
+leg.get_frame().set_linewidth(0.25)
+
+group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
+    int(x)).replace(',', ' '))
+plt.gca().yaxis.set_major_formatter(group_thousands)
 
 plt.xticks(rotation=45)
 ax.minorticks_off()
