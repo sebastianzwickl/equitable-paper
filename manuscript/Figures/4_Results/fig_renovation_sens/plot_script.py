@@ -57,7 +57,7 @@ ax2.annotate(
     multialignment='center',
     xy=(2027.875, 92.5), xycoords='data',
     xytext=(2026, 100), textcoords='data',
-    arrowprops=dict(headlength=4.5, 
+    arrowprops=dict(headlength=4.5,
                     headwidth=1.5,
                     width=0.05,
                     linewidth=0.5,
@@ -66,9 +66,6 @@ ax2.annotate(
 ax2.text(x=2025, y=106,
          s="Energy justice constraint\n(high overnight investment costs\nfor the building owner)",
          fontsize=7, va="center", multialignment="center", color="#C85C5C")
-
-
-
 
 ax.set_ylabel("Governance's NPV in EUR")
 ax2.set_ylabel("Energy demand in "+r'$\frac{kWh}{m^2 yr}$')

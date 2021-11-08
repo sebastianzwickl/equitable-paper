@@ -27,16 +27,18 @@ cmap = mlp.colors.LinearSegmentedColormap.from_list(
     'Custom cmap', ["#9B72AA", "#77ACF1", "#FFB319"], cmap.N)
 
 data.plot.bar(ax=ax, x="scenario", stacked=True,
-              title="Subsidiziation from the governance in EUR",
-              bars_order=None, cmap=cmap)
+              title="Subsidiziation from governance in EUR",
+              cmap=cmap,
+              bars_order=None)
 
-ax.text(x=2, y=-20000, s='$\it{Infeasible}$', rotation=90, va="top",
+ax.text(x=3, y=-20000, s='$\it{Infeasible}$', rotation=90, va="top",
         ha="center")
 
-ax.text(x=5, y=-20000, s='$\it{Infeasible}$', rotation=90, va="top",
+ax.text(x=4, y=-20000, s='$\it{Infeasible}$', rotation=90, va="top",
         ha="center")
 
 ax.set_ylabel("")
+ax.set_xlabel("")
 
 c_edge = "#161616"
 leg = ax.legend(loc='lower left', framealpha=1, handlelength=1,
@@ -48,6 +50,13 @@ leg.get_frame().set_linewidth(0.25)
 group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
     int(x)).replace(',', ' '))
 plt.gca().yaxis.set_major_formatter(group_thousands)
+
+ax.set_xticklabels(labels=["DT (DH)",
+                           "GD (DH)",
+                           "LD (DH)",
+                           "SC (HP)",
+                           "GD (HP)",
+                           "LD (HP"])
 
 plt.xticks(rotation=45)
 ax.minorticks_off()
