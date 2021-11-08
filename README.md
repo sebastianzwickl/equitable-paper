@@ -11,8 +11,7 @@ This repository includes materials and methods of the paper. A working document 
 - [x] Introduction (draft)
 - [x] State of the art (draft)
 - [x] Methodology (draft)
-- [ ] Results
-- [ ] Sensitivity analysis
+- [ ] Results and sensitivity analysis (under construction)
 - [ ] Conclusions
 
 # # Overview
