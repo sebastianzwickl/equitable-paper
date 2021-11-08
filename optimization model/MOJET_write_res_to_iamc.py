@@ -56,10 +56,10 @@ def write_results_to_ext_iamc_format(m, res_dir):
     _time = [_t for _t in m.set_years]
     _value = []
     for year in m.set_years:
-        _value.append(sum(
-            np.around(py.value(m.heat_subsidy[year, month]), 0)
-            for month in m.set_months
-            )
+        _value.append(np.around(
+            sum(py.value(m.heat_subsidy[year, month])
+                for month in m.set_months
+            ), 0)
         )
     output_iamc = write_IAMC(
         output_iamc, m.name, m.scenario, _region,

@@ -12,11 +12,11 @@ from pathlib import Path
 _data_folder = Path("data")
 # _data_folder = Path("validation")
 
-# _alt = "District heating"
-_alt = "Heat pump"
+_alt = "District heating"
+# _alt = "Heat pump"
 
-# _scenario = "Directed Transition"
-_scenario = "Societal Commitment"
+_scenario = "Directed Transition"
+# _scenario = "Societal Commitment"
 # _scenario = "Gradual Development"
 # _scenario = "Low CO2 price"
 
@@ -34,7 +34,7 @@ _df_val = pyam.IamDataFrame(_data_folder / "input-values.xlsx")
 
 
 """Sensitivity analysis"""
-sens = tuple([True, "10%"])
+sens = tuple([False, "10%"])
 if sens[0] is True:
     _df_val = pyam.IamDataFrame(_data_folder / "input-values_10%.xlsx")
     _df_time = pyam.IamDataFrame(_data_folder / "input-time-series_10%.xlsx")
@@ -107,3 +107,7 @@ if not os.path.exists(result_dir):
     os.makedirs(result_dir)
 
 write.write_results_to_ext_iamc_format(model, result_dir)
+
+model.con4_tenants_profitability.display()
+
+# print(model.con4_tenants_profitability.expr)
