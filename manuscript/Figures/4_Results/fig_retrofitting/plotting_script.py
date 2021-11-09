@@ -55,6 +55,7 @@ fig_left_up.text(x=0, y=450000, s='Infeasible', color="black",
         style='italic', rotation=0, va="center", ha="left", fontsize=4,
                   bbox=dict(facecolor='none', edgecolor='black', linewidth=0.25,
                                         boxstyle="round,pad=0.3"))
+fig_left_up.set_ylim([0, 510000])
 
 fig_left_up.annotate(
     '',
@@ -66,32 +67,32 @@ fig_left_up.annotate(
     arrowprops=dict(headlength=3.5,
                     headwidth=1,
                     width=0.025,
-                    linewidth=0.25,
+                    linewidth=0.5,
                     connectionstyle="arc3,rad=.1",
                     color="black", zorder=-10))
 
 
-fig_left_up.text(x=0.15, y=75000, s=r'$145\frac{kWh}{m^2 yr}$', color="black",
-        rotation=90, va="bottom", ha="center", fontsize=4,
+fig_left_up.text(x=0.175, y=75000, s=r'$145\frac{kWh}{m^2 yr}$', color="black",
+        rotation=90, va="bottom", ha="center", fontsize=4.5,
                   bbox=dict(facecolor='none', edgecolor='#595260', linewidth=0.,
                                         boxstyle="round,pad=0.3"))
 
-fig_left_up.text(x=1.15, y=75000, s=r'$130\frac{kWh}{m^2 yr}$', color="black",
-        rotation=90, va="bottom", ha="center", fontsize=4,
+fig_left_up.text(x=1.175, y=75000, s=r'$130\frac{kWh}{m^2 yr}$', color="black",
+        rotation=90, va="bottom", ha="center", fontsize=4.5,
                   bbox=dict(facecolor='none', edgecolor='white', linewidth=0.,
                                         boxstyle="round,pad=0.3"))
 
-fig_left_up.text(x=2.15, y=75000, s=r'$115\frac{kWh}{m^2 yr}$', color="black",
-        rotation=90, va="bottom", ha="center", fontsize=4,
+fig_left_up.text(x=2.175, y=75000, s=r'$115\frac{kWh}{m^2 yr}$', color="black",
+        rotation=90, va="bottom", ha="center", fontsize=4.5,
                   bbox=dict(facecolor='none', edgecolor='white', linewidth=0.,
                                         boxstyle="round,pad=0.3"))
 
-fig_left_up.text(x=3.15, y=75000, s=r'$100\frac{kWh}{m^2 yr}$', color="black",
-                 rotation=90, va="bottom", ha="center", fontsize=4,
+fig_left_up.text(x=3.175, y=75000, s=r'$100\frac{kWh}{m^2 yr}$', color="black",
+                 rotation=90, va="bottom", ha="center", fontsize=4.5,
                  bbox=dict(
                      facecolor='none', edgecolor='white', linewidth=0.,
                      boxstyle="round,pad=0.3"))
-
+fig_left_up.tick_params(axis='y',  which='both', right=False)
 
 """ FIGURE (b) """
 _c = ["#77ACF1", "#864879", "#3F3351"]
@@ -109,17 +110,21 @@ fig_right_up.yaxis.set_major_formatter(group_thousands)
 fig_right_up.set_title("Investment grant in EUR", fontsize=6, y=0.95)
 fig_right_up.tick_params(axis='x',  which='both', top=False)
 
-fig_right_up.text(x=1, y=33500, s=r'36\% of investment', color="black",
-                  rotation=90, va="center", ha="center", fontsize=4)
+fig_right_up.text(x=1, y=33500, s=r'29\% of investm.', color="black",
+                  rotation=90, va="center", ha="center", fontsize=5)
 
-fig_right_up.text(x=2, y=7500, s=r'3\%', color="black", rotation=0,
-                  va="center", ha="center", fontsize=4)
+fig_right_up.text(x=2, y=33500, s=r'2\% of investm.', color="black",
+                  rotation=90, va="center", ha="center", fontsize=5)
 
-fig_right_up.text(x=3, y=7500+3300, s=r'5\%', color="black", rotation=0,
-                  va="center", ha="center", fontsize=4)
+fig_right_up.text(x=3, y=33500, s=r'3\% of investm.', color="black",
+                  rotation=90, va="center", ha="center", fontsize=5)
+
 
 fig_right_up.set_xticklabels(labels=["0\%", "10\%", "20\%", "30\%"])
 fig_right_up.tick_params("x", labelrotation=0)
+fig_right_up.tick_params(axis='y',  which='both', right=False)
+
+
 
 """FIGURE (c)"""
 data = pyam.IamDataFrame("(c).xlsx")
@@ -137,18 +142,20 @@ group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
 fig_left_down.yaxis.set_major_formatter(group_thousands)
 fig_left_down.set_title("Subsidy payment in EUR/unit", fontsize=6, y=0.95)
 fig_left_down.tick_params("x", labelrotation=0)
-fig_left_down.set_ylim([0, 5000])
-Legend = fig_left_down.legend(loc="upper right")
+fig_left_down.set_ylim([0, 5200])
+# fig_left_down.set_yticks(ticks=[0, 1000, 2000, 3000, 4000])
+Legend = fig_left_down.legend(loc="upper right", frameon=True, framealpha=1,
+                              edgecolor="black")
+Legend.get_frame().set_linewidth(0.25)
 
-
-Legend.get_texts()[0].set_text(r'$10\% (130\frac{kWh}{m^2 yr})$')
-Legend.get_texts()[1].set_text(r'$20\% (115\frac{kWh}{m^2 yr})$')
-Legend.get_texts()[2].set_text(r'$30\% (100\frac{kWh}{m^2 yr})$')
+Legend.get_texts()[0].set_text(r'$10\%$')
+Legend.get_texts()[1].set_text(r'$20\%$')
+Legend.get_texts()[2].set_text(r'$30\%$')
 
 fig_left_down.tick_params(axis='x',  which='both', top=False)
 labels = [2025, 2030, 2035, 2040]
 fig_left_down.set_xticks(ticks=labels)
-
+# fig_left_down.tick_params(axis='y',  which='both', right=False)
 
 """FIGURE (d)"""
 
@@ -173,14 +180,19 @@ Lines[1].set_linestyle("dashed")
 Lines[2].set_linestyle("dotted")
 
 
-Legend = fig_right_down.legend(loc="right")
+Legend = fig_right_down.legend(loc="lower right", frameon=True, framealpha=1,
+                              edgecolor="black")
+Legend.get_frame().set_linewidth(0.25)
 
-Legend.get_texts()[0].set_text(r'$10\% (130\frac{kWh}{m^2 yr})$')
-Legend.get_texts()[1].set_text(r'$20\% (115\frac{kWh}{m^2 yr})$')
-Legend.get_texts()[2].set_text(r'$30\% (100\frac{kWh}{m^2 yr})$')
+Legend.get_texts()[0].set_text(r'$10\%$')
+Legend.get_texts()[1].set_text(r'$20\%$')
+Legend.get_texts()[2].set_text(r'$30\%$')
+
+fig_right_down.set_ylim([0, 47500])
 
 fig_right_down.tick_params(axis='x',  which='both', top=False)
 fig_right_down.set_xticks(ticks=labels)
+# fig_right_down.tick_params(axis='y',  which='both', right=False)
 
 plt.tight_layout()
 fig.savefig("retrofitting.eps", format="eps")
