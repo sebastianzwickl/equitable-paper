@@ -66,7 +66,6 @@ Since the initial condition of the old building in terms of total and peak heat 
 \definecolor{Gray}{gray}{0.95}
 \begin{table}[h]
 	\centering
-	\resizebox{\columnwidth}{!}{
 		\renewcommand{\arraystretch}{1.35}
 		\begin{tabular}{lccc}
 			\toprule
@@ -77,34 +76,12 @@ Since the initial condition of the old building in terms of total and peak heat 
 			Case A (all) & \SI{33}{\%} & \SI{33}{\%} & \SI{33}{\%}\\
 			Case B (building) & 0 & \SI{50}{\%} & \SI{50}{\%}\\
 			Case C (landlord) & 0 & \SI{100}{\%} & 0\\
-			Case D (tenant) & 0 & 0 & \SI{100}{\%}\\
+			Case D (tenant) & \SI{50}{\%} & 0 & \SI{50}{\%}\\
 			\hline
 			\cellcolor{Gray}Scenarios from Sec. \ref{sec:scenarios} & \cellcolor{Gray}\SI{100}{\%} & \cellcolor{Gray}0 & \cellcolor{Gray}0\\
 			\bottomrule
-			
-			
-%			\toprule 
-%			& \multicolumn{3}{c}{District heating (DH)} & \multicolumn{3}{c}{Heat pump (HP)}\\
-%			\cmidrule(lr){2-4}\cmidrule(lr){5-7}
-%			& DT & GD & LD & SC & GD& LD\\
-%			\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}\cmidrule(lr){5-5}\cmidrule(lr){6-6}\cmidrule(lr){7-7}
-%			Objective value & (\SI{1.5}{\degreeCelsius}) & (\SI{2.0}{\degreeCelsius}) & (-) & (\SI{1.5}{\degreeCelsius}) &  (\SI{2.0}{\degreeCelsius}) & (-)\\
-%			\hline
-%			Absolute in thous. \SI{}{EUR} & \SI{211.4}{} & \SI{195.5}{} & \cellcolor{Gray}\SI{190.1}{} & \textit{infeasible} & \textit{infeasible} & \SI{351.5}{}\\
-%			Rel. change in \% of LD (DH) & \SI{11.2}{} & \SI{2.6}{} & - &  & & \SI{82.6}{}\\ 
-%			\bottomrule
-	\end{tabular}}
+	\end{tabular}
 	\caption{}
 	\label{tab:allocation}
 \end{table}
-
-%Gradual Development scenario untersuchen und Fernwärme.
-%
-%Jeder 1/3
-%
-%Landlord 1/2, Tenant 1/2
-%
-%Voll beim Landlord
-%
-%Voll beim Tenant
 

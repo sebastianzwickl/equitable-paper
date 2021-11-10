@@ -68,6 +68,7 @@ def landlords_npv_equal_zero(model):
         for month in model.set_months
     )
     _tenants = model.n * (model.c_con - _rev_rent)
+    # NOTE THAT THIS CONSTRAINT INCLUDES A SENSITVITY PARAMETER
     return -model.c_inv * model.pi + model.investment - _tenants == 0
 
 
@@ -116,7 +117,8 @@ def tenants_positive_npv(model):
         for year in model.set_years
         for month in model.set_months
     )
-    return _left == _right
+    # NOTE THAT THIS CONSTRAINT INCLUDES A SENSITVITY PARAMETER
+    return _left == _right - 1639
 
 
 def governances_grant_subsidy_parity(model):
@@ -373,6 +375,10 @@ def increase_total_rent(model, year):
         return model.total_rent[year, 1] >= model.total_rent[year - 1, 1]
     else:
         return py.Constraint.Skip
+    
+
+def upper_capacity_limit(model):
+    return model.pi <= 150
 
 
 def add_constraints_to_model(model=None):
@@ -434,5 +440,7 @@ def add_constraints_to_model(model=None):
     model.con14_increase_total_rent = py.Constraint(
         model.set_years, rule=increase_total_rent
     )
+    
+    model.add_constraint = py.Constraint(rule=upper_capacity_limit)
 
     return model

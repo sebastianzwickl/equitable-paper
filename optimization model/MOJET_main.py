@@ -15,9 +15,9 @@ _data_folder = Path("data")
 _alt = "District heating"
 # _alt = "Heat pump"
 
-_scenario = "Directed Transition"
+# _scenario = "Directed Transition"
 # _scenario = "Societal Commitment"
-# _scenario = "Gradual Development"
+_scenario = "Gradual Development"
 # _scenario = "Low CO2 price"
 
 if _scenario == "Gradual Development":
