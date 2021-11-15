@@ -69,7 +69,7 @@ def landlords_npv_equal_zero(model):
     )
     _tenants = model.n * (model.c_con - _rev_rent)
     # NOTE THAT THIS CONSTRAINT INCLUDES A SENSITVITY PARAMETER
-    return -model.c_inv * model.pi + model.investment - _tenants == 0
+    return -model.c_inv * model.pi + model.investment - _tenants == -81713
 
 
 def tenants_positive_npv(model):
@@ -118,7 +118,7 @@ def tenants_positive_npv(model):
         for month in model.set_months
     )
     # NOTE THAT THIS CONSTRAINT INCLUDES A SENSITVITY PARAMETER
-    return _left == _right - 1639
+    return _left == _right
 
 
 def governances_grant_subsidy_parity(model):
