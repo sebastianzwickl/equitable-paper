@@ -79,11 +79,11 @@ ax.annotate("",
             )
 
 ax.text(x=9.75, y=-7250, s=r'$\frac{4}{5}$',
-        fontsize=10, rotation=30, va="center",
+        fontsize=13, rotation=30, va="center",
         ha="center",
         color="#716F81")
 
-ax.text(x=0.75, y=-12436.5, s=r'$\frac{1}{5}$', fontsize=10, rotation=0,
+ax.text(x=0.75, y=-12436.5, s=r'$\frac{1}{5}$', fontsize=13, rotation=0,
         va="center",
         ha="center",
         color="#716F81")
