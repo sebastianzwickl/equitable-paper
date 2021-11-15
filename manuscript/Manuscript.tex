@@ -4,7 +4,6 @@
 \begin{document}
 \begin{frontmatter}
 
-%\title{Justice in decarbonizing heating systems consistent with the Paris Climate Agreement: subsidy balance between landlords and tenants at the multi-apartment building level}
 \title{Equitable decarbonization of the heat supply of rented residential buildings: Optimal subsidization strategy under allocating the costs of inaction}
 \author[1]{Sebastian Zwickl-Bernhard\corref{cor1}}
 \ead{zwickl@eeg.tuwien.ac.at}
@@ -36,28 +35,27 @@
 		
 		{$y \in \mathcal{Y}=\{1,\ldots,Y\}$} & Years, index by $y$\\
 		{$m \in \mathcal{M}=\{1,\ldots,M\}$} & Months, index by $m$\\
-		
 		\hline
 		Decision variables\\
 		\hline
-		{$\Psi$} & Investment grant paid to the landlord & \SI{}{EUR}\\
-		{$\Omega_{y,m}$} & Heating costs subsidy payment for a single tenant in $y$ and $m$ & \SI{}{EUR}\\
-		{$d_{y,m}$} & Total heat demand per dwelling & \SI{}{kWh}\\
-		{$q_{y,m}$} & Heat demand supplied by the heating system alternative & \SI{}{kWh}\\
+		{$\Psi$} & Investment grant received by the landlord & \SI{}{EUR}\\
+		{$\Omega_{y,m}$} & Subsidy payment received by a tenant in $y$ and $m$ & \SI{}{EUR}\\
+		{$d_{y,m}$} & Total heat demand per tenant/unit in $y$ and $m$& \SI{}{kWh}\\
+		{$q_{y,m}$} & Heat demand supplied by the sustainable heating system alternative in $y$ and $m$& \SI{}{kWh}\\
 		{$\pi$} & Newly installed heating system alternative capacity & \SI{}{kW}\\
 		{$r_{y,m}$} & Rent charge adjustment in $y$ and $m$ & \SI{}{EUR\per m^2}\\
 		\hline
 		Relevant parameters\\
 		\hline
 		{$n$} & Number of tenants within the multi-apartment building & \SI{}{1}\\
-		{$i$} & Interest rate & \SI{}{\%}\\
-		{$q_{load,y,m}$} & Total heat demand in $y$ and $m$ & \SI{}{kWh}\\
-		{$\alpha_{m}$} & Monthly load factor (ratio between total and peak heat demand) in $m$ & \SI{}{1}\\
-		{$c_{alt}$} & Specific heating system alternative investment costs & \SI{}{EUR \per kW}\\
-		{$c_{con}$} & Heating system alternative construction costs & \SI{}{EUR}\\
+		{$i$} & Interest rate of an agent (governance, landlord, tenant)& \SI{}{\%}\\
+		{$d_{y,m}$} & Total heat demand per unit in $y$ and $m$ & \SI{}{kWh}\\
+		{$\alpha_{m}$} & Load factor (ratio total and peak demand) in $m$ & \SI{}{1}\\
+		{$c_{alt}$} & Investment costs of the heat system alternative& \SI{}{EUR \per kW}\\
+		{$c_{con}$} & Construction costs of the heat system alternative per unit & \SI{}{EUR}\\
 		{$\bar{r}$} & Initial rent price & \SI{}{EUR \per m^2}\\
-		{$\rho$} & Upper bound of the biannual rent charge adjustment & \SI{}{\%}\\
-		{$a$} & Rented area per tenant/dwelling & \SI{}{m^2}\\
+		{$\rho$} & Upper limit of the biannual rent charge adjustment & \SI{}{\%}\\
+		{$a$} & Rented area per tenant/unit & \SI{}{m^2}\\
 		{$p_{init,y}$} & Energy price fueling the initial heating system & \SI{}{EUR \per kWh}\\
 		{$p_{alt,y,m}$} & Energy price fueling the heating system alternative & \SI{}{EUR \per kWh}\\
 		\hline
@@ -84,7 +82,7 @@ This project has received funding from the European Union's Horizon 2020 Researc
 \setcounter{figure}{0}
 \newpage
 \section{Data}\label{app:data}
-Table \ref{tab:a1} shows specific emissions, energy prices, and further technical assumptions. The values correspond to the initial input parameters in $2025$ in our analysis. Furthermore, it is assumed that the specific emissions of electricity and district heating decrease linearly between $2025$ and the corresponding decarbonization target year of the scenario ($2040$ in the \textit{Directed Transition} and \textit{Societal Commitment} scenario as well as $2050$ in the \textit{Gradual Development scenario}). The energy price development of electricity, natural gas, and district heating is in line with the assumptions in \cite{fina2019profitability}. According to this, the (retail) electricity price increases by \SI{2.37}{\%} and the district heating price by \SI{5}{\%} per year. Additionally, the CO\textsubscript{2} price increases the energy price according to the specific emissions per year.
+Table \ref{tab:a1} shows specific emissions, energy prices, and further technical assumptions. The values correspond to the initial input parameters in $2025$ in our analysis. Furthermore, it is assumed that the specific emissions of electricity and district heating decrease linearly between $2025$ and the corresponding decarbonization target year of the scenario ($2040$ in the \textit{Directed Transition} and \textit{Societal Commitment} scenario as well as $2050$ in the \textit{Gradual Development scenario}). The energy price development of electricity, natural gas, and district heating is in line with the assumptions in \cite{fina2019profitability}. According to this, the (retail) electricity price increases by \SI{2.37}{\%} and the district heating price by \SI{5}{\%} per year. Additionally, the CO\textsubscript{2} price increases the energy price according to the specific emissions per year. Table \ref{tab:time} shows the CO\textsubscript{2} price development in the different scenarios. 
 
 \begin{table}[h]
 	\centering
@@ -105,6 +103,24 @@ Table \ref{tab:a1} shows specific emissions, energy prices, and further technica
 	\caption{Relevant economic parameters and further empirical settings for Austria in 2020}
 	\label{tab:a1}
 \end{table}
+
+\begin{table}[h]
+	\centering
+	\scalebox{0.85}{
+		\renewcommand{\arraystretch}{1.35}
+		\begin{tabular}{c|c|c|c|c}
+			\toprule 
+			Scenario & $2020$ & $2025-30$ & $2030-35$ & $2035-40$\\\hline
+			\textit{Directed Transition} & $30$ & $196$ & $357$ & $510$\\
+			\textit{Societal Commitment} & $30$ & $62$ & $137$ & $273$\\
+			\textit{Gradual Development} & $30$ & $83$ & $128$ & $183$\\
+			\textit{Low Development}  & $30$ & $60$ & $70$ & $80$\\
+			\bottomrule
+	\end{tabular}}
+	\caption{CO\textsubscript{2} price development}
+	\label{tab:time}
+\end{table}
+
 \section{Passive building retrofitting measures}\label{app:passive}
 We consider passive retrofitting measures in a very simplified way in this study and focus here only on the insulation of outer wall and wall to neighboring buildings. The economic and technical assumptions are oriented to the study from Fina et al. in \cite{fina2020profitability}. Moreover, we assume the following relationships between the specific heat demand and the heat pump's (average) coefficient of performance (COP): \SI{130}{kWh \per m^2} (COP$=2.5$), \SI{115}{kWh \per m^2} ($3.0$), \SI{100}{kWh \per m^2} ($3.5$). 
 
