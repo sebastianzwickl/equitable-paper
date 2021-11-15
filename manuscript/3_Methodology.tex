@@ -1,18 +1,18 @@
+\newpage
 \section{Materials and methods}\label{methodology}
-\todo{Interest rate des Landlords corresponds zum Mieterwechsel}
 This section explains the methodology and the optimization model developed in this work. The section starts with an introduction and overview of the model in Section \ref{met:intro}, followed by a detailed description of the mathematical formulation in Section \ref{met:formulas}. The case study and scenario description is given in Section \ref{met:empirical}. The model validation is described in Section \ref{met:validate} and the open-source programming environment in Section \ref{met:os}
 
 \subsection{Introduction and model overview}\label{met:intro}
 This section provides an comprehensive overview of the proposed model. In general, three agents with the following characteristics are considered:
 \paragraph{Governance} The governance's main objective is to decarbonizing the residential heating sector. Therefore, the intention is to trigger a heating system change to a sustainable alternative on the multi-apartment building level by financial support for both landlord and tenants. The avowed aim is to find a cost-minimal and socially balanced solution. The financial support can be realized by an investment grant (paid directly from the governance) or rent-charge-related revenues (from the tenants and refunded by the governance) for the landlord and heating costs subsidy payments for the tenants. 
-\paragraph{Landlord} is the owner of the multi-apartment building and provides the heating system for the tenants, and is profit-oriented. Thus, a heating system change toward a sustainable alternative only is realized in case of the economic viability of the investment. In this context, the landlord can achieve profitability of the alternative heating system by receiving an investment grant (to reduce the overnight investment costs from the governance) and a rent-charge-related revenue cash flow (from the tenants). 
-\paragraph{Tenant} rents a dwelling within the multi-apartment building from the landlord and has rent-related and energy-related spendings. He cannot change the heating system on his authority but depends on the landlord's willingness to realize a low-emission sustainable alternative. Especially in the case of the existing heating system, its costs are directly subject to a higher pricing of CO\textsubscript{2} emissions. Nevertheless, the tenant aims to limit total costs in case of a heating system change at the level of the initial condition.\vspace{0.5cm}
+\paragraph{Landlord} The landlord is the owner of the multi-apartment building, provides the heating system for the tenants, and is profit-oriented. Thus, a heating system change toward a sustainable alternative only is realized in case of the economic viability of the investment. In this context, the landlord can achieve profitability of the alternative heating system by receiving an investment grant (to reduce the overnight investment costs from the governance) and a rent-charge-related revenue cash flow (from the tenants). 
+\paragraph{Tenant} The tenant rents a dwelling/unit within the multi-apartment building from the landlord and has rent-related and energy-related spendings. He cannot change the heating system on his authority but depends on the landlord's willingness to realize a low-emission sustainable alternative. Especially in the case of the existing heating system, its costs are directly subject to a higher pricing of CO\textsubscript{2} emissions. Nevertheless, the tenant aims to limit total costs in case of a heating system change at the level of the initial condition.\vspace{0.5cm}
 
 Figure \ref{fig:methodology} shows a sketch illustrating the interrelations between the governance, the landlord, and the tenants. The governance can support the landlord financially by investment grants and by the allowance of rent charge adjustments. At the same time, tenants are supported by a heating costs subsidy payment. The gray bar in the middle indicates that these financial benefits need to be socially balanced and overcome the differences in ownership within the multi-apartment building. The rent or rent charge adjustment is the direct financial exchange between the landlord and the tenant.\vspace{0.5cm}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\linewidth]{figures/3_Methodology/Sketch.pdf}
+	\includegraphics[width=0.7\linewidth]{figures/3_Methodology/Sketch.pdf}
 	\caption{Sketch of the model illustrating the iterrelations between the governance, landlord, and tenants. Financial support from the governance is socially balanced at the multi-apartment building.}
 	\label{fig:methodology}
 \end{figure}
@@ -26,7 +26,7 @@ The objective function of the model is to minimize governance's total costs, inc
 \underset{x}{\mathrm{min~}} \Psi + \sum_{y} \sum_{m} \frac{n}{(1+i_g)^y} \cdot \Omega_{y,m}
 \end{align}
 
-where $\Psi$ is the investment grant paid to the landlord and $\Omega_{y,m}$ the heating costs subsidy payment paid to a single tenant in year $y$ and month $m$. In addition, $n$ is the number of tenants\footnote{It is assumed that the multi-apartment building consists of $n$ equal tenants.} and $i_g$ the governance's interest rate. The model's decision variables are included in the decision variable vector $x$. We refer to the nomenclature at the beginning of the paper containing a list of all decision variables.
+where $\Psi$ is the investment grant paid to the landlord and $\Omega_{y,m}$ the heating costs subsidy payment paid to a single tenant in year $y$ and month $m$. In addition, $n$ is the number of tenants\footnote{It is assumed that the multi-apartment building consists of $n$ equal tenants/units.} and $i_g$ the governance's interest rate. The model's decision variables are included in the decision variable vector $x$. We refer to the nomenclature at the beginning of the paper containing a list of all decision variables.
 
 \subsubsection{Model's constraints}
 Equation \ref{c:demand} describes the load satisfaction of the total heat demand within the multi-apartment building using the alternative heating system in each time step (year and month) 
@@ -51,10 +51,10 @@ where $c_{alt}$ is the specific investment costs of the heating system alternati
 
 where $\hat{d}$ is the peak value of the heat demand. Equation \ref{c:revenues} defines the rent-related revenues of the landlord ($\lambda_{y,m}$)
 \begin{align}\label{c:revenues}
-\lambda_{y,m} = a \cdot n \cdot (\bar{r} + r_{y,m}) \quad :\forall y,m
+\lambda_{y,m} = a \cdot n \cdot r_{y,m} \quad :\forall y,m
 \end{align}
 
-where $\bar{r}$ is the initial rent price, $r_{y,m}$ the rent charge adjustment associated with the heating system change in $y$ and $m$ and $a$ the area of a tenant's dwelling. Equation \ref{c:npv} sets the landlord's net present value of the alternative heating system investment equal to zero
+where $\bar{r}$ is the initial rent price, $r_{y,m}$ the rent charge adjustment associated with the heating system change in $y$ and $m$ and $a$ the area of a tenant's dwelling. Equation \ref{c:npv} sets the landlord's net present value of the alternative heating system investment equal to 0
 \begin{align}\label{c:npv}
 -\zeta + \sum_{y} \sum_{m} \frac{1}{(1+i_l)^y} \cdot \lambda_{y,m} = 0
 \end{align}
@@ -113,7 +113,7 @@ The \textit{Societal Commitment} (SC) scenario also leads to limiting the global
 
 The \textit{Gradual Development} (GD) scenario reaches a global temperature increase of \SI{2.0}{\degreeCelsius} and the corresponding climate target. In general, it is a very conservative expression of an European energy system future. This scenario includes a little of each sustainable development consisting of limited policy incentives, social acceptance, and technological advances. Both heating system alternatives (district heating connection and air-sourced heat pump installation) are examined. The CO\text{2} price in this scenario is between \SI{83}{EUR \per tCO_{2}} (in 2025) and \SI{261}{EUR \per tCO_{2}} (in 2040). Deep decarbonization of the European electricity and heating sector is achieved in $2050$.\vspace{0.5cm}
 
-In addition to the three openENTRANCE scenarios, the so-called "Low CO\textsubscript{2} price development" (LP) scenario is examined. This scenario neglects any remaining European CO\textsubscript{2} budget and misses both the  \SI{1.5}{\degreeCelsius} and \SI{2.0}{\degreeCelsius} climate target. Thus, decarbonizing the electricity and heating sector develops only sluggishly. Therefore, neither the CO\textsubscript{2} price nor the specific emissions of electricity and district heating significantly significantly changed compared to today's values. Again, both heating system alternatives are studied. The CO\text{2} price in this scenario is between \SI{60}{EUR \per tCO_{2}} (in 2025) and \SI{90}{EUR \per tCO_{2}} (in 2040). No target year achieving deep decarbonization of the European electricity and heating sector is set.
+In addition to the three openENTRANCE scenarios, the so-called "Low CO\textsubscript{2} price development" (LD) scenario is examined. This scenario neglects any remaining European CO\textsubscript{2} budget and misses both the  \SI{1.5}{\degreeCelsius} and \SI{2.0}{\degreeCelsius} climate target. Thus, decarbonizing the electricity and heating sector develops only sluggishly. Therefore, neither the CO\textsubscript{2} price nor the specific emissions of electricity and district heating significantly significantly changed compared to today's values. Again, both heating system alternatives are studied. The CO\textsubscript{2} price in this scenario is between \SI{60}{EUR \per tCO_{2}} (in 2025) and \SI{90}{EUR \per tCO_{2}} (in 2040). No target year achieving deep decarbonization of the European electricity and heating sector is set. Table \ref{tab:scenarios} summarizes the scenarios and the corresponding heating system alternative implemented. 
 
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
 \definecolor{Gray}{gray}{0.95}
@@ -127,15 +127,15 @@ In addition to the three openENTRANCE scenarios, the so-called "Low CO\textsubsc
 			\textit{Directed Transition} (DT) & \SI{1.5}{°C} & - & \cellcolor{Gray} \checkmark\\ 
 			\textit{Societal Commitment} (SC) & \SI{1.5}{°C} & \cellcolor{Gray} \checkmark & -\\
 			\textit{Gradual Development} (GD) & \SI{2.0}{°C} & \cellcolor{Gray} \checkmark & \cellcolor{Gray} \checkmark\\
-			Low CO\textsubscript{2} price (LP) & none & \cellcolor{Gray} \checkmark & \cellcolor{Gray} \checkmark\\
+			Low CO\textsubscript{2} price (LD) & none & \cellcolor{Gray} \checkmark & \cellcolor{Gray} \checkmark\\
 			\bottomrule
 	\end{tabular}}
 	\caption{Four different scenarios are studied, including three ambitious deep decarbonization scenarios, developed in the Horizon 2020 project openENTRANCE and a low CO\textsubscript{2} price development scenario. The scenario specific heating system alternative is marked by the check.}
 	\label{tab:scenarios}
 \end{table}
-Table \ref{tab:scenarios} summarizes the scenarios and the corresponding heating system alternative implemented. 
+
 \subsubsection{Empircial settings}\label{sec:data}
-Table \ref{tab:values} contains the empirical settings of the multi-apartment building including the agent's specific interest rates and further economic parameters. 
+Table \ref{tab:values} contains the empirical settings of the multi-apartment building including the agent's specific interest rates and further economic parameters. Note that the landlord's interest rate $i_l$ implicitly considers change of tenants and the associated empty dwelling state. Further empirical settings can be found in \ref{app:data}.
 
 \begin{table}[h]
 	\centering
@@ -162,27 +162,6 @@ Table \ref{tab:values} contains the empirical settings of the multi-apartment bu
 	\caption{Data assumptions of the multi-apartment building and its agents (landlord, tenants, and governance)}
 	\label{tab:values}
 \end{table}
-
-Table \ref{tab:time} contains the data with a temporal development (e.g., CO\textsubscript{2} price, specific emissions of the district heating supply, etc.). 
-
-\begin{table}[h]
-	\centering
-	\scalebox{0.85}{
-		\renewcommand{\arraystretch}{1.35}
-		\begin{tabular}{ccc|c|c|c|c}
-			\toprule 
-			Scenario & Variable & Unit & $2020$ & $2025-30$ & $2030-35$ & $2035-40$\\\hline
-			DT & CO\textsubscript{2} price & \SI{}{EUR \per tCO\textsubscript{2}} & $30$ & $196$ & $357$ & $510$\\
-			SC & CO\textsubscript{2} price & \SI{}{EUR \per tCO\textsubscript{2}} & $30$ & $62$ & $137$ & $273$\\
-			GD & CO\textsubscript{2} price & \SI{}{EUR \per tCO\textsubscript{2}} & $30$ & $83$ & $128$ & $183$\\
-			LP & CO\textsubscript{2} price & \SI{}{EUR \per tCO\textsubscript{2}} & $30$ & $60$ & $70$ & $80$\\
-			\bottomrule
-	\end{tabular}}
-	\caption{Empirical settings of the data with a temporal development between $2020$ and $2040$}
-	\label{tab:time}
-\end{table}
-
-Further empirical settings can be found in \ref{app:data}.
 
 \subsection{Validation of the model}\label{met:validate}
 This section aims to test the presented model and its functionalities. However, a model validation using existing empirical data can not be applied in this case. There is simply a lack of comparable data from real cases. Therefore, a small illustrative case study is chosen to demonstrate the main functionalities and to verify the model. We assume a single landlord and tenant in a representative single-family household implementing a heat pump. It is assumed that the landlord's and tenant's interest rate is equal (\SI{3}{\%}). A detailed description of the empirical settings can be found in \ref{app:verify}. Figure \ref{val:npv} shows the landlord's (a) and tenant's (b) net present value. 
