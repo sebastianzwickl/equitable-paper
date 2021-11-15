@@ -82,26 +82,31 @@ This project has received funding from the European Union's Horizon 2020 Researc
 \appendix
 \setcounter{table}{0}
 \setcounter{figure}{0}
+\newpage
 \section{Data}\label{app:data}
+Table \ref{tab:a1} shows specific emissions, energy prices, and further technical assumptions. The values correspond to the initial input parameters in $2025$ in our analysis. Furthermore, it is assumed that the specific emissions of electricity and district heating decrease linearly between $2025$ and the corresponding decarbonization target year of the scenario ($2040$ in the \textit{Directed Transition} and \textit{Societal Commitment} scenario as well as $2050$ in the \textit{Gradual Development scenario}). The energy price development of electricity, natural gas, and district heating is in line with the assumptions in \cite{fina2019profitability}. According to this, the (retail) electricity price increases by \SI{2.37}{\%} and the district heating price by \SI{5}{\%} per year. Additionally, the CO\textsubscript{2} price increases the energy price according to the specific emissions per year.
+
 \begin{table}[h]
 	\centering
 	\scalebox{0.85}{
 		\renewcommand{\arraystretch}{1.35}
-		\begin{tabular}{llr}
+		\begin{tabular}{llrr}
 			\toprule 
-			Variable & Unit & Value\\\hline
-			Specific emissions$\vert$Electricity & \SI{}{kgCO_{2} \per kWh} & \SI{0.130}{}\\
-			Specific emissions$\vert$District heating & \SI{}{kgCO_{2} \per kWh} & \SI{0.130}{}\\
-			Specific emissions$\vert$Natural gas & \SI{}{kgCO_{2} \per kWh} & \SI{0.220}{}\\
-			Price$\vert$District heating & \SI{}{EUR \per kWh} & \SI{0.047}{}\\
-			Price$\vert$Natural gas & \SI{}{EUR \per kWh} & \SI{0.05}{}\\
-			Price$\vert$Electricity & \SI{}{EUR \per kWh} & \SI{0.2}{}\\
-			Coefficient of performance (heat pump) & \SI{}{1} & \SI{3}{}\\
+			Variable & Unit & Value & Ref.\\\hline
+			Specific emissions$\vert$Electricity & \SI{}{kgCO_{2} \per kWh} & \SI{0.130}{}&\cite{emissions}\\
+			Specific emissions$\vert$District heating & \SI{}{kgCO_{2} \per kWh} & \SI{0.132}{}& \cite{dh_emissions}\\
+			Specific emissions$\vert$Natural gas & \SI{}{kgCO_{2} \per kWh} & \SI{0.220}{}&\cite{emissions}\\
+			Price$\vert$District heating & \SI{}{EUR \per kWh} & \SI{0.047}{}& \cite{dh_prices}\\
+			Price$\vert$Natural gas & \SI{}{EUR \per kWh} & \SI{0.050}{}& \cite{gas_prices}\\
+			Price$\vert$Electricity & \SI{}{EUR \per kWh} & \SI{0.200}{}& \cite{electricity_prices}\\
+			Coefficient of performance (average) & \SI{}{1} & \SI{2.35}{}& \cite{cop_hp}\\
 			\bottomrule
 	\end{tabular}}
-	\caption{2020's economic parameters and empirical settings}
+	\caption{Relevant economic parameters and further empirical settings for Austria in 2020}
 	\label{tab:a1}
 \end{table}
+\section{Passive building retrofitting measures}\label{app:passive}
+We consider passive retrofitting measures in a very simplified way in this study and focus here only on the insulation of outer wall and wall to neighboring buildings. The economic and technical assumptions are oriented to the study from Fina et al. in \cite{fina2020profitability}. Moreover, we assume the following relationships between the specific heat demand and the heat pump's (average) coefficient of performance (COP): \SI{130}{kWh \per m^2} (COP$=2.5$), \SI{115}{kWh \per m^2} ($3.0$), \SI{100}{kWh \per m^2} ($3.5$). 
 
 \section{Empirical settings of the small case example}\label{app:verify}
 \begin{table}[h]
@@ -124,10 +129,32 @@ This project has received funding from the European Union's Horizon 2020 Researc
 			Specific emissions$\vert$Electricity & \SI{}{kgCO_{2} \per kWh} & \SI{0.130}{}\\
 			\bottomrule
 	\end{tabular}}
-	\caption{Small case example's parameters}
+	\caption{Small case example's parameters and assumptions}
 	\label{tab:a2}
 \end{table}
 
-\todo{Hier beschreiben was die passive Retrofitting measures sind: Wall renovation}
-\section{Varying allocation}\label{app:varying}
+\section{Mathematical formulation for varying allocation of the costs of inaction}\label{app:varying}
+This work considers the CO\textsubscript{2} price related costs as the costs of inaction and opportunity costs (OC) respectively. Hence, Equation \ref{app:eq:inaction} describes the costs of inaction per year $y$ and month $m$
+
+\begin{align}\label{app:eq:inaction}
+	OC_{y,m} =    \gamma_{init} \cdot p_{y}^{CO\textsubscript{2}} \cdot d_{y,m}
+\end{align}
+
+where $\gamma_{init}$ is the specific emissions of the initial heating system (i.e., natural gas) and $p_{y}^{CO\textsubscript{2}}$ the CO\textsubscript{2} price in year $y$ and month $m$. Exemplarily, Equation \ref{app:eq:landlord} shows the landlord's net present value in total when a part of the total OC is allocated to the landlord's net present value
+
+\begin{align}\label{app:eq:landlord}
+	OC_{l} =  \sum_{y} \sum_{m} s_l \cdot \frac{OC_{y,m}}{(1+i_l)^y} 
+\end{align}
+
+where $s_l$ is the share in the costs of inaction borne by the landlord. Consequently, Equation \ref{c:npv} is modified as follows by considering the landlord's costs of inaction.
+
+\begin{align}\label{app:eq:landlord}
+	-OC_{l} =  -\zeta + \sum_{y} \sum_{m} \frac{1}{(1+i_l)^y} \cdot \lambda_{y,m}
+\end{align}
+
+A similar logic is developed in the modification of the tenant's net present value. Therfore, the tenant's share of the costs of inaction ($OC_{t}$)are considered in Equation \ref{c:ten4}. Most importantly, the tenant's OCs influence the initial spendings that are assumed to be the limit in the sustainable heating system alternative (see Equation \ref{c:app:tenant}).
+
+\begin{align}\label{c:app:tenant}
+	K_{alt} = K_{init} - OC_{t}
+\end{align}
 \end{document}
