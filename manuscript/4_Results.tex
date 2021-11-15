@@ -38,7 +38,7 @@ Figure \ref{fig:npv_comparison} shows the subsidization from the governance for 
 \end{figure}
 
 \subsection{District heating in the Directed Transition scenario}\label{res:district_heating}
-This section presents the results of the district heating implementation in the \textit{Directed Transition} scenario in detail. Figure \ref{fig:dt+dh} shows the revenues and net present value of the landlord and a single tenant within the time horizon $2025$ to $2040$. The subfigure at the top left shows the revenues of the landlord consisting of the overnight investment costs (light blue), investment grant (blue), and rent-related revenues (yellow). Note that later represent the additional rent-related revenues based on the modernization of the building regarding the newly installed sustainable heating system alternative. The subfigure at the bottom left shows the development of the landlord's net present value. Thereby, it is shown that the investment achieves a net present value equal to zero at the end of the time horizon in 2040. The two subfigures to the right illustrate the tenant's revenues (top) and net present value (bottom). The tenant gets subsidy payments from the governance between 2025 and 2030. Thus, the tenant's net present value achieves the same value as in the reference case. The reference case considers constant remaining rent- and heat-related costs for the tenant based on the initial rent, gas, and CO\textsubscript{2} as in 2025. In the years 2025 to 2029, the subsidy payments exceed the heating costs of the tenant. Note that the tenant already pays a higher rent charge to the landlord within the same period (see the yellow bars in the top left subfigure).
+This section presents the results of the district heating implementation in the \textit{Directed Transition} scenario in detail. Figure \ref{fig:dt+dh} shows the revenues and net present value of the landlord and a single tenant within the time horizon $2025$ to $2040$. The subfigure at the top left shows the revenues of the landlord consisting of the overnight investment costs (light blue), investment grant (blue), and rent-related revenues (yellow). Note that later represent the additional rent-related revenues based on the modernization of the building regarding the newly installed sustainable heating system alternative. The subfigure at the bottom left shows the development of the landlord's net present value. Thereby, it is shown that the investment achieves a net present value equal to zero at the end of the time horizon in 2040. The two subfigures to the right illustrate the tenant's revenues (top) and net present value (bottom). 
 
 \begin{figure}[h]
 	\centering
@@ -47,7 +47,7 @@ This section presents the results of the district heating implementation in the 
 	\label{fig:dt+dh}
 \end{figure}
 
-Most importantly, the tenant's reference net present value ("Ref. (Gas/2025)" marked by the gray dashed line in the bottom right subfigure) shows a crucial issue of the results and analysis, respectively. Since "Ref. (Gas/2025)" is used as the initial tenant's spendings, the results take into account the fact that the total opportunity costs (hence, those costs that would be incurred by sticking to the initial gas-based heating system for the tenant due to a rising CO\textsubscript{2} price). Note that the decarbonization scenarios do consider both a significant increase of the CO\textsubscript{2} and a decrease of the specific emissions of the district heating and electricity fueling mix. A detailed discussion of the allocation of CO\textsubscript{2} price-related opportunity costs is shown in Section \ref{res:co2_shares}.
+ The tenant gets subsidy payments from the governance between 2025 and 2030. Thus, the tenant's net present value achieves the same value as in the reference case. The reference case considers constant remaining rent- and heat-related costs for the tenant based on the initial rent, gas, and CO\textsubscript{2} as in 2025. In the years 2025 to 2029, the subsidy payments exceed the heating costs of the tenant. Note that the tenant already pays a higher rent charge to the landlord within the same period (see the yellow bars in the top left subfigure). Most importantly, the tenant's reference net present value ("Ref. (Gas/2025)" marked by the gray dashed line in the bottom right subfigure) shows a crucial issue of the results and analysis, respectively. Since "Ref. (Gas/2025)" is used as the initial tenant's spendings, the results take into account the fact that the total opportunity costs (hence, those costs that would be incurred by sticking to the initial gas-based heating system for the tenant due to a rising CO\textsubscript{2} price). Note that the decarbonization scenarios do consider both a significant increase of the CO\textsubscript{2} and a decrease of the specific emissions of the district heating and electricity fueling mix. A detailed discussion of the allocation of CO\textsubscript{2} price-related opportunity costs is shown in Section \ref{res:co2_shares}.
 
 \subsection{Heat pump in the Societal Commitment scenario}\label{res:heat_pump}
 Figure \ref{fig:retrofitting} shows the results of the heat pump option in the \textit{Societal Commitment} scenario in detail. 
@@ -62,26 +62,50 @@ Figure \ref{fig:retrofitting} shows the results of the heat pump option in the \
 Since the initial condition of the old building in terms of total and peak heat demand leads to the infeasibility of the model, three additional renovation levels are presented. Latter correspond to a \SI{10}{\%}, \SI{20}{\%}, and \SI{30}{\%} reduction of both the total and peak heat demand. The initial condition of the old building is marked by \SI{0}{\%} as no reduction takes place. Most importantly, it can be seen that the building renovation increases the objective value (Fig. \ref{fig:retrofitting} top left). In case of a \SI{10}{\%} reduction of the heat demand, the landlord receives a significant investment grant be equivalent to \SI{29}{\%} of the landlord's total overnight investment costs (Fig. \ref{fig:retrofitting} top right). The tenant's subsidy payment takes place between 2025 and 2030 with a maximum of \SI{2040}{EUR} (Fig. \ref{fig:retrofitting} bottom left). The rent charge adjustment and related revenues remain almost constant during the period (Fig. \ref{fig:retrofitting} bottom right). In case of a \SI{20}{\%} reduction of the heat demand, the landlord receives only a small investment grant related to the total overnight investment costs (around \SI{2}{\%}). The tenant's subsidy payment takes place between 2025 and 2032 with a maximum of approximately \SI{2556}{EUR}. The landlord's rent-related revenues increase until 2031 and then remain constant. In case of a \SI{30}{\%} reduction of the heat demand, the landlord receives as before a small investment grant (\SI{3}{\%} of total overnight investment costs). Instead, the landlord makes significant rent-related revenues (the highest among the three renovation levels). The tenant gets subsidy payments in most years, excluding 2026 and 2028 to 2030. The maximum is \SI{2796}{EUR} in 2040. The lower heat energy-related costs as a result of the building renovation lead to higher rent charge payments. Hence, smaller investment grants supporting the landlord are needed. 
 
 \subsection{Allocation of CO\textsubscript{2} pricing related costs between the governance, landlord and tenant}\label{res:co2_shares}
+This section presents the results of district heating in the \textit{Gradual Development} scenario for varying allocation of the opportunity costs among the governance, landlord, and tenants. In this context, the opportunity costs are defined as the costs of inaction and result from sticking to the initial natural gas-based heat system. Particularly, the CO\textsubscript{2} price related costs are allocated between the three parties/agents. Table \ref{tab:allocation} provides an overview of the different cases which cover different allocation assumptions. Exemplarily, "Case A (equally)" takes into account that the carbon price is shared equally among the governance, landlord, and tenants. Each of them bear one third of the costs. Note that the scenarios from Sec. \ref{sec:scenarios} considered so far that the the total costs of inaction are covered by the governance or public authority (see Equation \ref{c:ten2} and \ref{c:ten4}). The mathematical formulation can be found in \ref{app:varying}.
 
 \definecolor{Gray}{gray}{0.95}
 \begin{table}[h]
 	\centering
+	\resizebox{\columnwidth}{!}{
 		\renewcommand{\arraystretch}{1.35}
 		\begin{tabular}{lccc}
 			\toprule
-			& \multicolumn{3}{c}{Opportunity costs}\\
-			\cmidrule(lr){2-4}
-			Rel. allocation among agents& Governance & Landlord & Tenants\\
+			Rel. allocation of the opportunity costs& Governance & Landlord & Tenants\\
 			\hline
-			Case A (all) & \SI{33}{\%} & \SI{33}{\%} & \SI{33}{\%}\\
-			Case B (building) & 0 & \SI{50}{\%} & \SI{50}{\%}\\
-			Case C (landlord) & 0 & \SI{100}{\%} & 0\\
-			Case D (tenant) & \SI{50}{\%} & 0 & \SI{50}{\%}\\
+			Case A (equally) & $\frac{1}{3}$ & $\frac{1}{3}$ & $\frac{1}{3}$\\
+			Case B (within the building) & 0 & $\frac{1}{2}$ & $\frac{1}{2}$\\
+			Case C (provider-side) & 0 & $1$ & 0\\
+			Case D (consumer-side) & $\frac{1}{2}$ & 0 & $\frac{1}{2}$\\
 			\hline
-			\cellcolor{Gray}Scenarios from Sec. \ref{sec:scenarios} & \cellcolor{Gray}\SI{100}{\%} & \cellcolor{Gray}0 & \cellcolor{Gray}0\\
+			\cellcolor{Gray}Scenarios from Sec. \ref{sec:scenarios} & \cellcolor{Gray}$1$ & \cellcolor{Gray}0 & \cellcolor{Gray}0\\
 			\bottomrule
-	\end{tabular}
-	\caption{}
+	\end{tabular}}
+	\caption{Allocation of the opportunity costs (costs of inaction) among the governance, the landlord, and tenants}
 	\label{tab:allocation}
 \end{table}
+
+Figure \ref{fig:3dplot} shows the relative change of the objective value for varying allocation of the opportunity costs. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figures/4_Results/fig_3d_plot/3d.eps}
+	\caption{Comparison of the objective value for varying allocation of opportunity cost among the tenants (x-axis), the landlord (y-axis), and governance (z-axis) switching to district heating. The size of the points corresponds to the obj. function value in proportion to the \textit{Gradual Development scenario} (percentage change in the boxes).}
+	\label{fig:3dplot}
+\end{figure}
+
+The objective value of the district heating option in the \textit{Gradual Development} scenario (GD (DH)) is used as the reference value and marked by the black point in the upper left corner. Most importantly, the highest reduction is obtained in "Case C" where the landlord has to cover the costs of inaction (-\SI{49}{\%} compared to the reference value). The second highest reduction is in "Case B". In this case, the opportunity costs are shared equally within the building among the landlord and tenants (-\SI{34}{\%}). "Case A" reduces the objective value by \SI{25}{\%}.  It is evident that an even allocation between the governance and the tenants ("Case D") do not lead to a reduction of the objective value. The main reason for this are monetary support for the landlord that is required to incentivize the investment and that the monetary support between the landlord and tenants is forced to have the same net present value.\vspace{0.5cm}
+
+Figure \ref{fig:feasible} shows the objective value foy varying landlord's interest rate. Note that these results are located in the YZ-plane spanned by the landlord's and governance's share in the costs of inaction in Figure \ref{fig:3dplot}. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\linewidth]{figures/4_Results/fig_feasible/feasible.eps}
+	\caption{Comparison of the objective value for varying landlord's interest rate and share in costs of inaction}
+	\label{fig:feasible}
+\end{figure}
+
+Particularly, "Ref. value" and and "Case B" specify the two endpoints of the blue line with $i_l=\SI{10}{\%}$. The varying landlord's interest rate has two important impacts. First, a decreasing interest rate reduces the objective value as revenues are discounted less (see Fig. \ref{fig:feasible} for a fixed landlord's share in costs of inaction, e.g., $0.2$). Second, that as the interest rate decreases, a feasibility limit becomes apparent. This means, that the feasible maximum of the landlord's share in costs of inaction depends on the landlord's interest rate $i_l$. For example, the feasibility limit is \SI{70}{\%} for $i_l=\SI{5}{\%}$ and \SI{60}{\%} for $i_l=\SI{3}{\%}$ respectively. 
+
+
 
