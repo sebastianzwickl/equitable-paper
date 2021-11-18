@@ -1,6 +1,5 @@
-\newpage
 \section{Results and sensitivity analysis}\label{results}
-This section presents the most relevant results of the proposed case study. Section \ref{res:overview} compares the results of the district heating or heat-pump-based heat supply in the different scenarios. Section \ref{res:district_heating} puts the focus on the district heating option results in the \textit{Directed Transition} scenario and Section \ref{res:heat_pump} on the implementation of a heat pump system in the \textit{Societal Commitment} scenario. Latter highlights the impact of passive retrofitting measures on the feasibility of the model when implementing a heat pump in the old building and subsidization strategy and presents a sensitivity analysis regarding the total heat demand of the building as a parameter. Finally, Section \ref{res:co2_shares} presents the results in the case of a CO\textsubscript{2} pricing cost allocation between the landlord as the building's owner and the tenants. 
+This section presents the most relevant results of the proposed case study. Section \ref{res:overview} compares the results of the district heating or heat-pump-based heat supply in the different scenarios. Section \ref{res:district_heating} puts the focus on the district heating option results in the \textit{Directed Transition} scenario and Section \ref{res:heat_pump} on the implementation of a heat pump system in the \textit{Societal Commitment} scenario and thus on the heat alternatives in the ambitious scenarios. Especially, the latter highlights the impact of passive retrofitting measures on the feasibility of the model when implementing a heat pump in the old building and subsidization strategy and presents a sensitivity analysis regarding the total heat demand of the building as a parameter. Finally, Section \ref{res:co2_shares} presents the results in the case of a CO\textsubscript{2} pricing cost allocation between the landlord as the building's owner and the tenants. 
 
 \subsection{Objective value and results comparison}\label{res:overview}
 Table \ref{tab:objective} shows a comparison of the obtained objective values for district heating (DH) and heat pump implementation in the different scenarios. 
@@ -8,7 +7,7 @@ Table \ref{tab:objective} shows a comparison of the obtained objective values fo
 \definecolor{Gray}{gray}{0.95}
 \begin{table}[h]
 	\centering
-	\resizebox{\columnwidth}{!}{
+	\scalebox{0.8}{
 		\renewcommand{\arraystretch}{1.35}
 		\begin{tabular}{lcccccc}
 			\toprule 
@@ -22,39 +21,37 @@ Table \ref{tab:objective} shows a comparison of the obtained objective values fo
 			Rel. change in \% of LD (DH) & \SI{11.2}{} & \SI{2.6}{} & - &  & & \SI{82.6}{}\\ 
 			\bottomrule
 	\end{tabular}}
-	\caption{Comparison of objective value results for the different heating system alternatives and scenarios}
+	\caption{Comparison of objective value results for the different heating system alternatives and scenarios (explanations of shortcuts in Table \ref{tab:scenarios})}
 	\label{tab:objective}
 \end{table}
 
-In particular, two important aspects can be obtained while studying this table. The values across the three district heating cases are relatively stable and are within \SI{11.2}{\%}. In addition, the heat pump implementation in the two decarbonization scenarios \textit{Societal Commitment} and \textit{Gradual Development} is infeasible. In this context, only the low CO\textsubscript{2} price development provides a solution for the heat pump but with a significantly higher value compared to the scenario with the lowest value (+\SI{82.6}{\%} compared with the lowest value).\vspace{0.5cm}
-
-Figure \ref{fig:npv_comparison} shows the subsidization from the governance for the different technologies and scenarios. Note that the landlord's rent-related revenues (orange bar) are an implicit subsidy. Hence, the objective values from above are equal to the sum of the tenants' heating costs subsidy (purple bar) and the landlord's investment grant (blue bar). 
+In particular, two important aspects can be obtained while studying this table. The values across the three district heating cases are relatively stable and are within \SI{11.2}{\%}. In addition, the heat pump implementation in the two decarbonization scenarios \textit{Societal Commitment} and \textit{Gradual Development} is infeasible (presented in detail and discussed in Section \ref{res:heat_pump}). Only the low CO\textsubscript{2} price development provides a solution for the heat pump but with a significantly higher value compared to the scenario with the lowest value (+\SI{82.6}{\%} compared with the lowest value). Figure \ref{fig:npv_comparison} shows the subsidization from the governance for the different technologies and scenarios. Note that the landlord's rent-related revenues (orange bar) are an implicit subsidy. Hence, the objective values from above are equal to the sum of the tenants' heating costs subsidy (purple bar) and the landlord's investment grant (blue bar). 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\linewidth]{figures/4_Results/fig_npv_comparison/net_present_value.eps}
+	\includegraphics[width=0.65\linewidth]{figures/4_Results/fig_npv_comparison/net_present_value.eps}
 	\caption{Comparison of subsidiziation from the governance for the landlord and the tenants for district heating (DH) and heat pump (HP) implementation in the different scenarios}
 	\label{fig:npv_comparison}
 \end{figure}
 
 \subsection{District heating in the Directed Transition scenario}\label{res:district_heating}
-This section presents the results of the district heating implementation in the \textit{Directed Transition} scenario in detail. Figure \ref{fig:dt+dh} shows the revenues and net present value of the landlord and a single tenant within the time horizon $2025$ to $2040$. The subfigure at the top left shows the revenues of the landlord consisting of the overnight investment costs (light blue), investment grant (blue), and rent-related revenues (yellow). Note that later represent the additional rent-related revenues based on the modernization of the building regarding the newly installed sustainable heating system alternative. The subfigure at the bottom left shows the development of the landlord's net present value. Thereby, it is shown that the investment achieves a net present value equal to zero at the end of the time horizon in 2040. The two subfigures to the right illustrate the tenant's revenues (top) and net present value (bottom). 
+This section presents the results of the district heating implementation in the \textit{Directed Transition} scenario in detail. Figure \ref{fig:dt+dh} shows the revenues and net present value of the landlord and a single tenant within the time horizon $2025$ to $2040$. The subfigure at the top left shows the revenues of the landlord consisting of the overnight investment costs (light blue), investment grant (blue), and rent-related revenues (yellow). Note that latter represent the additional rent-related revenues based on the modernization of the building regarding the newly installed sustainable heating system alternative. The subfigure at the bottom left shows the development of the landlord's net present value. Thereby, it is shown that the investment achieves a net present value equal to zero at the end of the time horizon in 2040. The two subfigures to the right illustrate the tenant's revenues (top) and net present value (bottom). 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\linewidth]{figures/4_Results/fig_DT_DH/detail.eps}
+	\includegraphics[width=0.9\linewidth]{figures/4_Results/fig_DT_DH/detail.eps}
 	\caption{Development of the landlord's and tenant's economic viability of the district heating option in the \textit{Directed Transition} scenario. Top left: landlord's revenues, bottom left: landlord's net present value (NPV), top right: tenant's revenues, bottom right: tenant's net present value}
 	\label{fig:dt+dh}
 \end{figure}
 
- The tenant gets subsidy payments from the governance between 2025 and 2030. Thus, the tenant's net present value achieves the same value as in the reference case. The reference case considers constant remaining rent- and heat-related costs for the tenant based on the initial rent, gas, and CO\textsubscript{2} as in 2025. In the years 2025 to 2029, the subsidy payments exceed the heating costs of the tenant. Note that the tenant already pays a higher rent charge to the landlord within the same period (see the yellow bars in the top left subfigure). Most importantly, the tenant's reference net present value ("Ref. (Gas/2025)" marked by the gray dashed line in the bottom right subfigure) shows a crucial issue of the results and analysis, respectively. Since "Ref. (Gas/2025)" is used as the initial tenant's spendings, the results take into account the fact that the total opportunity costs (hence, those costs that would be incurred by sticking to the initial gas-based heating system for the tenant due to a rising CO\textsubscript{2} price). Note that the decarbonization scenarios do consider both a significant increase of the CO\textsubscript{2} and a decrease of the specific emissions of the district heating and electricity fueling mix. A detailed discussion of the allocation of CO\textsubscript{2} price-related opportunity costs is shown in Section \ref{res:co2_shares}.
+ The tenant receives subsidy payments from the governance between 2025 and 2030. Thus, the tenant's net present value achieves the same value as in the reference case. The reference case considers constant remaining rent- and heat-related costs for the tenant based on the initial rent, gas, and CO\textsubscript{2} as in 2025. In the years 2025 to 2029, the subsidy payments exceed the heating costs of the tenant. Note that the tenant already pays a higher rent charge to the landlord within the same period (see the yellow bars in the top left subfigure). Most importantly, the tenant's reference net present value ("Ref. (Gas/2025)" marked by the gray dashed line in the bottom right subfigure) shows a crucial issue of the results and analysis, respectively. Since "Ref. (Gas/2025)" is used as the initial tenant's spendings, the results take into account the fact that the total opportunity costs (hence, those costs that would be incurred by sticking to the initial gas-based heating system for the tenant due to a rising CO\textsubscript{2} price). Note that the decarbonization scenarios do consider both a significant increase of the CO\textsubscript{2} and a decrease of the specific emissions of the district heating and electricity fueling mix. A detailed discussion of the allocation of CO\textsubscript{2} price-related opportunity costs is shown in Section \ref{res:co2_shares}.
 
-\subsection{Heat pump in the Societal Commitment scenario}\label{res:heat_pump}
-Figure \ref{fig:retrofitting} shows the results of the heat pump option in the \textit{Societal Commitment} scenario in detail. 
+\subsection{Heat pump and building stock quality in the Societal Commitment scenario}\label{res:heat_pump}
+The following results base on the findings of the results comparison between scenarios in Section \ref{res:overview}. In particular, the focus is put on the impact of different building renovation levels and the corresponding impact on the feasibility of the model. The results are explicitly not presented in the same way as in the previous Section \ref{res:district_heating} for the \textit{Directed Transition} scenario. On the one hand, such a presentation could not provide any further significant findings, and on the other hand, the scenarios have already been compared in detail in the first section. Instead, this section goes into more detail and shows reasons for the infeasibility of the heat pump option. As no solution for the \textit{Societal Commitment} scenario can be yield due to the high demand, assumptions on building renovation which lower the heat demand level are introduced and tested for different degrees.  Figure \ref{fig:retrofitting} shows the results of the heat pump option in the \textit{Societal Commitment} scenario for four different heat demand levels in detail. 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\linewidth]{figures/4_Results/fig_retrofitting/retrofitting.eps}
+	\includegraphics[width=0.9\linewidth]{figures/4_Results/fig_retrofitting/retrofitting.eps}
 	\caption{Comparison of the heat pump option in the \textit{Societal Commitment} scenario for different renovation levels. Top left: governance's objective value, top right: landlord's investment grant, bottom left: tenant's subsidy payment per unit, bottom right: landlord's rent-related revenues in total}
 	\label{fig:retrofitting}
 \end{figure}
@@ -67,7 +64,8 @@ This section presents the results of district heating in the \textit{Gradual Dev
 \definecolor{Gray}{gray}{0.95}
 \begin{table}[h]
 	\centering
-		\renewcommand{\arraystretch}{1.35}
+	\scalebox{0.85}{
+		\renewcommand{\arraystretch}{1.2}
 		\begin{tabular}{lccc}
 			\toprule
 			Rel. allocation of opportunity costs& Governance & Landlord & Tenants\\
@@ -79,7 +77,7 @@ This section presents the results of district heating in the \textit{Gradual Dev
 			\hline
 			\cellcolor{Gray}Scenarios from Sec. \ref{sec:scenarios} & \cellcolor{Gray}$1$ & \cellcolor{Gray}0 & \cellcolor{Gray}0\\
 			\bottomrule
-	\end{tabular}
+	\end{tabular}}
 	\caption{Allocation of the opportunity costs (costs of inaction) among the governance, the landlord, and tenants}
 	\label{tab:allocation}
 \end{table}
@@ -88,18 +86,18 @@ Figure \ref{fig:3dplot} shows the relative change of the objective value for var
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.7\linewidth]{figures/4_Results/fig_3d_plot/3d.eps}
+	\includegraphics[width=0.65\linewidth]{figures/4_Results/fig_3d_plot/3d.eps}
 	\caption{Comparison of the objective value for varying allocation of opportunity cost among the tenants (x-axis), the landlord (y-axis), and governance (z-axis) switching to district heating. The size of the points corresponds to the obj. function value in proportion to the \textit{Gradual Development scenario} (percentage change in the boxes).}
 	\label{fig:3dplot}
 \end{figure}
 
 The objective value of the district heating option in the \textit{Gradual Development} scenario (GD (DH)) is used as the reference value and marked by the black point in the upper left corner. Most importantly, the highest reduction is obtained in "Case C" where the landlord has to cover the costs of inaction (-\SI{49}{\%} compared to the reference value). The second highest reduction is in "Case B". In this case, the opportunity costs are shared equally within the building among the landlord and tenants (-\SI{34}{\%}). "Case A" reduces the objective value by \SI{25}{\%}.  It is evident that an even allocation between the governance and the tenants ("Case D") do not lead to a reduction of the objective value. The main reason for this are monetary support for the landlord that is required to incentivize the investment and that the monetary support between the landlord and tenants is forced to have the same net present value.\vspace{0.5cm}
 
-Figure \ref{fig:feasible} shows the objective value foy varying landlord's interest rate. Note that these results are located in the YZ-plane spanned by the landlord's and governance's share in the costs of inaction in Figure \ref{fig:3dplot}. 
+Figure \ref{fig:feasible} shows the objective value for varying landlord's interest rate. Note that these results are located in the YZ-plane spanned by the landlord's and governance's share in the costs of inaction in Figure \ref{fig:3dplot}. 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.75\linewidth]{figures/4_Results/fig_feasible/feasible.eps}
+	\includegraphics[width=0.65\linewidth]{figures/4_Results/fig_feasible/feasible.eps}
 	\caption{Comparison of the objective value for varying landlord's interest rate and share in costs of inaction}
 	\label{fig:feasible}
 \end{figure}
