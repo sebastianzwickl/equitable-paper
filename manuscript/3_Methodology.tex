@@ -139,7 +139,7 @@ Table \ref{tab:values} contains the empirical settings of the multi-apartment bu
 
 \begin{table}[h]
 	\centering
-	\scalebox{0.85}{
+	\scalebox{0.8}{
 		\renewcommand{\arraystretch}{1.35}
 		\begin{tabular}{llr}
 			\toprule 
@@ -186,4 +186,4 @@ This section aims to test the presented model and its functionalities. However, 
 Both agents receive equal financial support with a total of \SI{13750}{EUR}. One finfth of the landlord's support is paid as an investment grant and four-fifths as rent-charge related revenues. The tenant receives a heating costs subsidy. The level of financial support results exactly in (i) a landlord's net present value equal to zero within the time horizon of 15 years (see Figure \ref{fig:landlord}) and (ii) a constant remaining net present value of tenant compared to the conventional (existing) heating system (including the initial rent charge) (see Figure \ref{fig:tenant}). 
 
 \subsection{Open-source programming environment and data format}\label{met:os}
-The developed optimization model is implemented in Python using the modeling framework Pyomo \cite{hart2017optimization}. It is solved with the solver Gurobi version 9.0.3. We use for data analysis the common data format template developed by the Integrated Assessment Modeling Consortium (IAMC) using the open-source Python package pyam \cite{huppmann2021pyam}. Note that all materials used in this study are disclosed as part of the publication at GitHub \footnote{https://github.com/sebastianzwickl}. We refer to the repository for the codebase, data collection, and further information. 
+The developed optimization model is implemented in Python 3.8.12 using the modeling framework Pyomo version 5.7.3 \cite{hart2017optimization}. It is solved with the solver Gurobi version 9.0.3. We use for data analysis the common data format template developed by the Integrated Assessment Modeling Consortium (IAMC) using the open-source Python package pyam \cite{huppmann2021pyam}. Note that all materials used in this study are disclosed as part of the publication at GitHub \footnote{https://github.com/sebastianzwickl}. We refer to the repository for the codebase, data collection, and further information. 
