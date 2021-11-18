@@ -1,4 +1,4 @@
-# Justice in decarbonizing the heating system consistent with the Paris Climate Agreement: subsidy balance between landlords and tenants at the multi-apartment building level
+# Equitable decarbonization of the heat supply of rented residential buildings: Optimal subsidization strategy under allocating the costs of inaction
 
 Copyright (c) 2021 Energy Economics Group (EEG), Technische Universität Wien, Sebastian Zwickl-Bernhard
 
