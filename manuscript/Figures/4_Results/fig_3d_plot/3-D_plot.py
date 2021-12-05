@@ -2,11 +2,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.transforms
 
-c_case_A = "#AA14F0"
-c_case_0 = "#082032"
-c_case_B = "#1C7947"
-c_case_C = "#14279B"
-c_case_D = "#00C1D4"
+c_case_D = "#8236CB"
+c_case_0 = "black"
+c_case_B = "#57837B"
+c_case_C = "#185ADB"
+c_case_A = "#FFAA4C"
 
 def plt_sphere(list_center, list_radius):
     for c, r in zip(list_center, list_radius):    
@@ -25,11 +25,16 @@ plt.style.use(['science'])
 plt.rcParams['xtick.labelsize'] = 5
 plt.rcParams['ytick.labelsize'] = 5
 plt.rc('legend', fontsize=4)
-plt.rcParams['grid.color'] = "#C9CCD5"
-plt.rcParams['grid.linewidth'] = 0.25
+plt.rcParams['grid.color'] = "#E1E5EA"
+plt.rcParams['grid.linewidth'] = 0.2
+
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
+
+ax.w_xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+ax.w_yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+ax.w_zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
 
 # FIRST LINE
 f_line_x = np.linspace(0, 1/3, 1000)
@@ -164,27 +169,27 @@ _patches = []
 # _patches.extend([_line])
 # _line = Line2D([0], [0], label = "Heat",color="black", linewidth=6)
 # _patches.extend([_line])
-line4 = Line2D(range(1), range(1), color="white", marker='o',markersize=5,
+line4 = Line2D(range(1), range(1), color="white", marker='o',markersize=4,
                markerfacecolor=c_case_0, label='GD (DH) ($t$=0, $l$=0, $g$=1)')
 _patches.extend([line4])
 
-line4 = Line2D(range(1), range(1), color="white", marker='o',markersize=5*0.75,
+line4 = Line2D(range(1), range(1), color="white", marker='o',markersize=4,
                markerfacecolor=c_case_A, label=r'Case A $(\frac{1}{3}, \frac{1}{3}, \frac{1}{3})$')
 _patches.extend([line4])
-line4 = Line2D(range(1), range(1), color="white", marker='o',markersize=5*0.66,
+line4 = Line2D(range(1), range(1), color="white", marker='o',markersize=4,
                markerfacecolor=c_case_B, label=r'Case B $(\frac{1}{2}, \frac{1}{2}, 0)$')
 _patches.extend([line4])
-line4 = Line2D(range(1), range(1), color="white", marker='o',markersize=5*0.51,
+line4 = Line2D(range(1), range(1), color="white", marker='o',markersize=4,
                markerfacecolor=c_case_C, label='Case C $(0, 1, 0)$')
 _patches.extend([line4])
-line4 = Line2D(range(1), range(1), color="white", marker='o',markersize=5*0.94,
+line4 = Line2D(range(1), range(1), color="white", marker='o',markersize=4,
                markerfacecolor=c_case_D, label=r'Case D $(\frac{1}{2}, 0, \frac{1}{2})$')
 _patches.extend([line4])
 leg = ax.legend(handles=_patches, loc='lower center', bbox_to_anchor=(0.625, 0.65), ncol=1, edgecolor="black", frameon=True, framealpha=1)
 leg.get_frame().set_linewidth(0.25)
 
 ax.set_title(
-    "Rel. change of objective value in \% of GD (DH)\nfor varying allocation of opportunity costs", fontsize=8, y=1.02)
+    "Rel. change of objective value in \% of GD (DH)\nfor varying allocation of "+"CO$_2$"+"-related opportunity costs", fontsize=8, y=1.02)
 
 
 

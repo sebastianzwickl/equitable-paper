@@ -86,7 +86,7 @@ ax.set_xlabel("Landlord's share in costs of inaction $(s_l)$", fontsize=8)
 
 
 
-ax.set_title("Objective value in EUR for varying landlord's interest rate",
+ax.set_title("Objective value in EUR for varying landlord's interest rates",
                          fontsize=8)
 
 ax.set_ylim([0, 220000])
@@ -121,7 +121,7 @@ ax.plot([2031, 2032, 2035], [89877, 93533, 99419], color="black",
 
 # ax.plot([2031, 2032], [89877, 93533], linestyle="dashed",
 #         color="red", linewidth=1, zorder=-1)
-
+ax.minorticks_off()
 plt.tight_layout()
 fig.savefig("feasible.eps", format="eps")
 fig.savefig("feasible.png", dpi=900)

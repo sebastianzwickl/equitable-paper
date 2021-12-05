@@ -47,7 +47,7 @@ fig_left_up.set_ylabel("")
 group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
     int(x)).replace(',', ' '))
 fig_left_up.yaxis.set_major_formatter(group_thousands)
-fig_left_up.set_title("Objective value in EUR", fontsize=6, y=0.95)
+fig_left_up.set_title("Governance's total costs in EUR", fontsize=6, y=0.95)
 fig_left_up.tick_params("x", labelrotation=0)
 fig_left_up.set_xticklabels(labels=["0\%", "10\%", "20\%", "30\%"])
 fig_left_up.tick_params(axis='x', which='both', top=False)
