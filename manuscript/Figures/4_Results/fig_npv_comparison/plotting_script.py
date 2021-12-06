@@ -54,7 +54,7 @@ cmap = mlp.colors.LinearSegmentedColormap.from_list(
     'Custom cmap', ["#9B72AA", "#77ACF1", "#FFB319"], cmap.N)
 
 data.plot.bar(ax=ax, x="scenario", stacked=True,
-              title="Subsidiziation from governance in EUR",
+              title="Governance's total financial support in EUR",
               cmap=cmap,
               bars_order=None)
 

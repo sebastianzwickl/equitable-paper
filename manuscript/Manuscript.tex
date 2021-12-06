@@ -17,7 +17,7 @@
 \end{abstract}
 
 \begin{keyword}
-	Equitability, decarbonization, residential, heat supply, subsidization, heat system change
+	Equitability, decarbonization, residential, heat supply, subsidization, heat system change, landlord, tenants
 	
 \end{keyword}
 \end{frontmatter}
@@ -75,20 +75,20 @@ None.
 \section*{Declaration of Competing Interest}
 The authors report no declarations of interest.
 \section*{Acknowledgments}
-This project has received funding from the European Union's Horizon 2020 Research and Innovation Programme under Grant Agreement No. 835896. The authors acknowledge TU Wien Bibliothek for financial support through its Open Access Funding Programme.
+This project has received funding from the European Union's Horizon 2020 Research and Innovation Programme under Grant Agreement No. 835896. The authors acknowledge TU Wien Bibliothek for financial support through its Open Access Funding Programme. The authors would like to thank Christian Kalchschmied and Andreas Lux for their valuable contributions from the field to this work.
 
 \bibliography{mybibfile}
 \appendix
 \setcounter{table}{0}
 \setcounter{figure}{0}
-\newpage
+
 \section{Data}\label{app:data}
-Table \ref{tab:a1} shows specific emissions, energy prices, and further technical assumptions. The values correspond to the initial input parameters in $2025$ in our analysis. Furthermore, it is assumed that the specific emissions of electricity and district heating decrease linearly between $2025$ and the corresponding decarbonization target year of the scenario ($2040$ in the \textit{Directed Transition} and \textit{Societal Commitment} scenario as well as $2050$ in the \textit{Gradual Development scenario}). The energy price development of electricity, natural gas, and district heating is in line with the assumptions in \cite{fina2019profitability}. According to this, the (retail) electricity price increases by \SI{2.37}{\%} and the district heating price by \SI{5}{\%} per year. Additionally, the CO\textsubscript{2} price increases the energy price according to the specific emissions per year. Table \ref{tab:time} shows the CO\textsubscript{2} price development in the different scenarios. 
+Table \ref{tab:a1} shows specific emissions, energy prices, and further technical assumptions. The values correspond to the initial input parameters in $2025$ in our analysis. Furthermore, it is assumed that the specific emissions of electricity and district heating decrease linearly between $2025$ and the corresponding decarbonization target year of the scenario ($2040$ in the \textit{Directed Transition} and \textit{Societal Commitment} scenario as well as $2050$ in the \textit{Gradual Development scenario}). The energy price development of electricity, natural gas, and district heating is in line with the assumptions in \cite{fina2019profitability}.
 
 \begin{table}[h]
 	\centering
 	\scalebox{0.85}{
-		\renewcommand{\arraystretch}{1.35}
+		\renewcommand{\arraystretch}{1.2}
 		\begin{tabular}{llrr}
 			\toprule 
 			Variable & Unit & Value & Ref.\\\hline
@@ -105,10 +105,12 @@ Table \ref{tab:a1} shows specific emissions, energy prices, and further technica
 	\label{tab:a1}
 \end{table}
 
+ According to this, the (retail) electricity price increases by \SI{2.37}{\%} and the district heating price by \SI{5}{\%} per year. Additionally, the CO\textsubscript{2} price increases the energy price according to the specific emissions per year. Table \ref{tab:time} shows the CO\textsubscript{2} price development in the different scenarios. 
+
 \begin{table}[h]
 	\centering
 	\scalebox{0.85}{
-		\renewcommand{\arraystretch}{1.35}
+		\renewcommand{\arraystretch}{1.2}
 		\begin{tabular}{c|c|c|c|c}
 			\toprule 
 			Scenario ($\SI{}{EUR \per tCO_2}$)& $2020$ & $2025-30$ & $2030-35$ & $2035-40$\\\hline
@@ -123,13 +125,13 @@ Table \ref{tab:a1} shows specific emissions, energy prices, and further technica
 \end{table}
 
 \section{Passive building retrofitting measures}\label{app:passive}
-We consider passive retrofitting measures in this study in a very simplified way and focus here on the insulation of the building skin and the wall to neighboring buildings only. The economic and technical assumptions are oriented to the study from Fina et al. in \cite{fina2020profitability}. Moreover, we assume the following relationships between the specific heat demand and the heat pump's (average) coefficient of performance (COP): \SI{130}{kWh \per m^2} (COP$=2.5$), \SI{115}{kWh \per m^2} ($3.0$), \SI{100}{kWh \per m^2} ($3.5$). 
+We consider passive retrofitting measures in this study in a very simplified way and focus here on the insulation of the building skin and the wall to neighboring buildings only. The economic and technical assumptions are oriented to the study from Fina et al. in \cite{fina2020profitability}. The following relationships between the specific heat demand and the heat pump's (average) coefficient of performance (COP) are assumed: \SI{130}{kWh \per m^2} (COP$=2.5$), \SI{115}{kWh \per m^2} ($3.0$), \SI{100}{kWh \per m^2} ($3.5$). 
 
 \section{Empirical settings of the case example}\label{app:verify}
 \begin{table}[h]
 	\centering
 	\scalebox{0.85}{
-		\renewcommand{\arraystretch}{1.35}
+		\renewcommand{\arraystretch}{1.2}
 		\begin{tabular}{llr}
 			\toprule 
 			Variable & Unit & Value\\\hline
@@ -150,7 +152,7 @@ We consider passive retrofitting measures in this study in a very simplified way
 	\label{tab:a2}
 \end{table}
 
-\section{Mathematical formulation for varying allocation of the costs of inaction}\label{app:varying}
+\section{Varying allocation of the costs of inaction}\label{app:varying}
 This work considers the CO\textsubscript{2} price related costs as the costs of inaction and opportunity costs (OC) respectively. Hence, Equation \ref{app:eq:inaction} describes the costs of inaction per year $y$ and month $m$
 
 \begin{align}\label{app:eq:inaction}
