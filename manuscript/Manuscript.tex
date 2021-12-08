@@ -4,7 +4,7 @@
 \begin{document}
 \begin{frontmatter}
 
-\title{Equitable decarbonization of heat supply in rented residential multi-apartment buildings: Optimal subsidy allocation between landlord and tenants}
+\title{Equitable decarbonization of heat supply in residential multi-apartment rental buildings: Optimal subsidy allocation between landlord and tenants}
 \author[1]{Sebastian Zwickl-Bernhard\corref{cor1}}
 \ead{zwickl@eeg.tuwien.ac.at}
 \author[1]{Hans Auer}
@@ -13,7 +13,7 @@
 \address[1]{Energy Economics Group (EEG), Technische Universität Wien, Gusshausstrasse 25-29/E370-3, 1040 Wien, Austria}
 
 \begin{abstract}
-	\textcolor{blue}{The core objective of this work is demonstrate an equitable decarbonization of heat supply in rented residential multi-apartment buildings. We develop a modeling framework determining a socially balanced financial governance's support strategy between the building owner (landlord) and the tenants. We analyze results of a partly renovated old building switching either to the district heating network or implementing a heat pump system under several decarbonization storylines. We find that an equitable switch to a sustainable heat system is possible but with massive public subsidy payments. Particularly, the landlord’s investment grant and additional rent-related revenues based on the building renovation are crucial to trigger the profitability of investments. Simultaneously, subsidy payments to the tenants are required at the beginning of the investment period to limit the energy and rent-related spending. Results show that the heat pump alternative is not competitive in supplying heat demand. Allocating the costs of inaction (sticking to the existing gas-based heating system and paying increasing CO\textsubscript{2} costs) between the governance, landlord, and tenants turns out as an important lever as required subsidy payments can be reduced significantly.}
+	The core objective of this work is to demonstrate equitable decarbonization of heat supply in residential multi-apartment rental buildings. A modeling framework is developed determining a socially balanced financial governance's support strategy between the building owner (landlord) and tenants to trigger a heating system change. The results of different decarbonization scenarios of a partly renovated old building switching from gas-fired heat supply either to the district heating network or being equipped with a heat pump system show that an equitable heating system change is possible, but with massive public subsidy payments. Particularly, the investment grant to the landlord and additional rent-related revenues due to building renovation are decisive for the profitability of the investment. Simultaneously, subsidy payments to the tenants are required at the beginning of the investment period to limit their energy and rent-related spendings. Results also show that the heat pump alternative is not competitive compared to district heating, even in case of extensive retrofitting of the building. Allocating the costs of inaction (opportunity costs associated with rising CO\textsubscript{2} prices) between the governance, landlord, and tenants turns out as an important lever as required subsidy payments can be reduced significantly.
 \end{abstract}
 
 \begin{keyword}
@@ -22,7 +22,6 @@
 \end{keyword}
 \end{frontmatter}
 
-\newpage
 \section*{Nomenclature}
 \begin{center}
 	\renewcommand{\arraystretch}{1.1}
@@ -81,14 +80,14 @@ This project has received funding from the European Union's Horizon 2020 Researc
 \appendix
 \setcounter{table}{0}
 \setcounter{figure}{0}
-
+\newpage
 \section{Data}\label{app:data}
-Table \ref{tab:a1} shows specific emissions, energy prices, and further technical assumptions. The values correspond to the initial input parameters in $2025$ in our analysis. Furthermore, it is assumed that the specific emissions of electricity and district heating decrease linearly between $2025$ and the corresponding decarbonization target year of the scenario ($2040$ in the \textit{Directed Transition} and \textit{Societal Commitment} scenario as well as $2050$ in the \textit{Gradual Development scenario}). The energy price development of electricity, natural gas, and district heating is in line with the assumptions in \cite{fina2019profitability}.
+Table \ref{tab:a1} shows specific emissions, energy prices, and further technical assumptions. The values correspond to the initial input parameters in $2025$ in our analysis. Furthermore, it is assumed that the specific emissions of electricity and district heating decrease linearly between $2025$ and the corresponding decarbonization target year of the scenario ($2040$ in the \textit{Directed Transition} and \textit{Societal Commitment} scenario as well as $2050$ in the \textit{Gradual Development scenario}). The energy price development of electricity, natural gas, and district heating is in line with the assumptions in \cite{fina2019profitability}.  According to this, the (retail) electricity price increases by \SI{2.37}{\%} and the district heating price by \SI{5}{\%} per year. Additionally, the CO\textsubscript{2} price increases the energy price according to the specific emissions per year. Table \ref{tab:time} shows the CO\textsubscript{2} price development in the different scenarios.
 
 \begin{table}[h]
 	\centering
 	\scalebox{0.85}{
-		\renewcommand{\arraystretch}{1.2}
+		\renewcommand{\arraystretch}{1.35}
 		\begin{tabular}{llrr}
 			\toprule 
 			Variable & Unit & Value & Ref.\\\hline
@@ -105,12 +104,12 @@ Table \ref{tab:a1} shows specific emissions, energy prices, and further technica
 	\label{tab:a1}
 \end{table}
 
- According to this, the (retail) electricity price increases by \SI{2.37}{\%} and the district heating price by \SI{5}{\%} per year. Additionally, the CO\textsubscript{2} price increases the energy price according to the specific emissions per year. Table \ref{tab:time} shows the CO\textsubscript{2} price development in the different scenarios. 
+
 
 \begin{table}[h]
 	\centering
 	\scalebox{0.85}{
-		\renewcommand{\arraystretch}{1.2}
+		\renewcommand{\arraystretch}{1.35}
 		\begin{tabular}{c|c|c|c|c}
 			\toprule 
 			Scenario ($\SI{}{EUR \per tCO_2}$)& $2020$ & $2025-30$ & $2030-35$ & $2035-40$\\\hline
@@ -130,13 +129,13 @@ We consider passive retrofitting measures in this study in a very simplified way
 \section{Empirical settings of the case example}\label{app:verify}
 \begin{table}[h]
 	\centering
-	\scalebox{0.85}{
-		\renewcommand{\arraystretch}{1.2}
+	\scalebox{0.8}{
+		\renewcommand{\arraystretch}{1.35}
 		\begin{tabular}{llr}
 			\toprule 
 			Variable & Unit & Value\\\hline
-			Heat pump investment costs & \SI{}{EUR \per kW} & \SI{1000}{}\\
-			Construction costs & \SI{}{EUR} & \SI{1000}{}\\
+			Investment cost (heat pump) & \SI{}{EUR \per kW} & \SI{1000}{}\\
+			Construction cost & \SI{}{EUR} & \SI{1000}{}\\
 			Initial rent price & \SI{}{EUR \per m^2} & \SI{10}{}\\
 			Rented area & \SI{}{m^2} & \SI{100}{}\\	
 			Total heat demand & \SI{}{kWh} & \SI{22000}{}\\		
@@ -171,7 +170,7 @@ where $s_l$ is the share in the costs of inaction borne by the landlord. Consequ
 	-OC_{l} =  -\zeta + \sum_{y} \sum_{m} \frac{1}{(1+i_l)^y} \cdot \lambda_{y,m}
 \end{align}
 
-A similar logic is developed in the modification of the tenant's net present value. Therefore, the tenant's share of the costs of inaction ($OC_{t}$) are considered in Equation \ref{c:ten4}. Most importantly, the tenant's OCs influence the initial spendings that are assumed to be the limit in the sustainable heating system alternative (see Equation \ref{c:app:tenant}).
+A similar logic is developed in the modification of the tenant's net present value. The tenant's share of the costs of inaction ($OC_{t}$) are considered in Equation \ref{c:ten4}. The tenant's OCs influence the initial spendings that are assumed to be the limit in the sustainable heating system alternative (see Equation \ref{c:app:tenant}).
 
 \begin{align}\label{c:app:tenant}
 	K_{alt} = K_{init} - OC_{t}
