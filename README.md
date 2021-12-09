@@ -1,4 +1,4 @@
-# Equitable decarbonization of the heat supply of rented residential buildings: Optimal subsidization strategy under allocating the costs of inaction
+# Equitable decarbonization of heat supply in residential multi-apartment rental buildings: Optimal subsidy allocation between landlord and tenants
 
 Copyright (c) 2021 Energy Economics Group (EEG), Technische Universität Wien, Sebastian Zwickl-Bernhard
 
