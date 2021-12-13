@@ -44,9 +44,9 @@ data.plot.bar(stacked=True, ax=fig_left_up, title=None, legend=False,
 fig_left_up.set_xlabel("")
 fig_left_up.set_ylabel("")
 group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
-    int(x)).replace(',', ' '))
+    int(x)))
 fig_left_up.yaxis.set_major_formatter(group_thousands)
-fig_left_up.set_title("Landlord's cash flow in EUR", fontsize=6, y=0.95)
+fig_left_up.set_title("Property owner's cash flow in EUR", fontsize=6, y=0.95)
 fig_left_up.tick_params("x", labelrotation=0)
 fig_left_up.legend(loc="upper right", handlelength=1)
 fig_left_up.tick_params(axis='x', which='both', top=False)
@@ -65,8 +65,7 @@ data.plot.bar(stacked=True, ax=fig_right_up, title=None, legend=False,
               cmap=cmap)
 fig_right_up.set_xlabel("")
 fig_right_up.set_ylabel("")
-group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
-    int(x)).replace(',', ' '))
+
 fig_right_up.yaxis.set_major_formatter(group_thousands)
 fig_right_up.set_title("Tenant's cash flow in EUR", fontsize=6, y=0.95)
 fig_right_up.tick_params("x", labelrotation=0)
@@ -84,10 +83,9 @@ data.plot(ax=fig_left_down, title=None, legend=False, color="#678983",
           marker="d", markersize=1)
 fig_left_down.set_xlabel("")
 fig_left_down.set_ylabel("")
-group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
-    int(x)).replace(',', ' '))
+
 fig_left_down.yaxis.set_major_formatter(group_thousands)
-fig_left_down.set_title("Landlord's NPV in EUR", fontsize=6, y=0.95)
+fig_left_down.set_title("Property owner's NPV in EUR", fontsize=6, y=0.95)
 fig_left_down.tick_params("x", labelrotation=0)
 fig_left_down.legend(loc="upper right")
 fig_left_down.tick_params(axis='x',  which='both', top=False)
@@ -105,8 +103,7 @@ data.plot(ax=fig_right_down, title=None, legend=False, color="variable",
           cmap=cmap)
 fig_right_down.set_xlabel("")
 fig_right_down.set_ylabel("")
-group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
-    int(x)).replace(',', ' '))
+
 fig_right_down.yaxis.set_major_formatter(group_thousands)
 fig_right_down.set_title("Tenant's NPV in EUR",
                          fontsize=6, y=0.95)

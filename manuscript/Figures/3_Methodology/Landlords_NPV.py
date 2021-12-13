@@ -1,5 +1,6 @@
 """Plotting the model validation."""
 import matplotlib.pyplot as plt
+import matplotlib.ticker as tkr
 
 plt.style.use(['science'])
 plt.rcParams['xtick.labelsize'] = 8
@@ -88,7 +89,7 @@ ax.text(x=0.75, y=-12436.5, s=r'$\frac{1}{5}$', fontsize=13, rotation=0,
         ha="center",
         color="#716F81")
 
-ax.text(x=2.5, y=-6750, s=r'$+13750$', fontsize=10, rotation=0,
+ax.text(x=2.5, y=-6750, s=r'+13,750', fontsize=10, rotation=0,
         va="center",
         ha="center",
         color="black"
@@ -123,6 +124,10 @@ ax.set_ylim([-15000, 1000])
 ax.set_xlim([-1, 16])
 leg = ax.get_legend()
 leg._loc = 4
-ax.set_title("Landlords\'s net present value in EUR", fontsize=10)
+group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
+    int(x)))
+
+ax.yaxis.set_major_formatter(group_thousands)
+ax.set_title("Property owner\'s net present value in EUR", fontsize=10)
 fig.savefig("Validate-Landlord.eps", format="eps")
 fig.savefig("Validate-Landlord.png", dpi=900)

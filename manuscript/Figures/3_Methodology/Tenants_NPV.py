@@ -1,5 +1,6 @@
 """Plotting the model validation."""
 import matplotlib.pyplot as plt
+import matplotlib.ticker as tkr
 
 plt.style.use(['science'])
 
@@ -8,7 +9,7 @@ plt.rcParams['ytick.labelsize'] = 8
 
 plt.rc('legend', fontsize=7)
 
-labels = ["Conventional", "Alternative"]
+labels = ["Existing\n(gas-fired heating system)", "Alternative\n(heat pump)"]
 
 
 width = 0.5
@@ -43,7 +44,7 @@ plt.xticks(rotation=0)
 #         va="center",
 #         ha="center")
 
-ax.text(x=1, y=-191773, s=r'$+13750$', fontsize=10, rotation=0,
+ax.text(x=1, y=-191773, s=r'+13,750', fontsize=10, rotation=0,
         va="center",
         ha="center",
         color="white"
@@ -87,6 +88,11 @@ ax.set_ylim([-200000, -150000])
 ax.set_xlim([-0.5, 1.5])
 leg = ax.get_legend()
 leg._loc = 3
+
+group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
+    int(x)))
+
+ax.yaxis.set_major_formatter(group_thousands)
 
 leg.get_texts()[1].set_text('Subsidy payment')
 ax.set_title("Tenant\'s net present value in EUR", fontsize=10)

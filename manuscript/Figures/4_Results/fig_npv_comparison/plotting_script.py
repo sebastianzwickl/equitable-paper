@@ -74,8 +74,12 @@ leg = ax.legend(loc='lower left', framealpha=1, handlelength=1,
                 bbox_to_anchor=(0.0125, 0.175))
 leg.get_frame().set_linewidth(0.25)
 
+leg.get_texts()[0].set_text('Heating cost subsidy (tenants)')
+leg.get_texts()[1].set_text('Investment grant (property owner)')
+leg.get_texts()[2].set_text('Rent-related revenues (property owner)')
+
 group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
-    int(x)).replace(',', ' '))
+    int(x)))
 plt.gca().yaxis.set_major_formatter(group_thousands)
 
 ax.set_xticklabels(labels=["DT (DH)",

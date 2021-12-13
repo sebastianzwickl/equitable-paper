@@ -137,7 +137,7 @@ ax.text(0.25, 0, 0.15, s=r'$-6\%$', fontsize=5, zdir=None, color=c_case_D,
     
 ax.set_zlabel("Governance's share $(g)$", fontsize=5, labelpad=-10)
 ax.set_xlabel("Tenant's share $(t)$", fontsize=5, labelpad=-10)
-ax.set_ylabel("Landlord's share $(l)$", fontsize=5, labelpad=-10)
+ax.set_ylabel("Property owner's share $(l)$", fontsize=5, labelpad=-10)
 
 ax.set_xticks(ticks=[0, 1/3, 0.5, 2/3, 0.915])
 ax.set_xticklabels(
@@ -189,7 +189,7 @@ leg = ax.legend(handles=_patches, loc='lower center', bbox_to_anchor=(0.625, 0.6
 leg.get_frame().set_linewidth(0.25)
 
 ax.set_title(
-    "Rel. change of objective value in \% of GD (DH)\nfor varying allocation of "+"CO$_2$"+"-related opportunity costs", fontsize=8, y=1.02)
+    "Rel. change of objective value in \% of GD (DH)\nfor varying allocations of "+"CO$_2$"+"-related opportunity costs", fontsize=8, y=1.02)
 
 
 

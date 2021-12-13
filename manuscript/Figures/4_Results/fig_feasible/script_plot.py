@@ -82,16 +82,16 @@ ax.text(x=2025.25, y=70000,
 ax.set_xticks([2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035])
 ax.set_xticklabels(labels=["0", "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1"])
 ax.set_ylabel("")
-ax.set_xlabel("Landlord's share in costs of inaction $(s_l)$", fontsize=8)
+ax.set_xlabel("Property owner's share in costs of inaction $(s_l)$", fontsize=8)
 
 
 
-ax.set_title("Objective value in EUR for varying landlord's interest rates",
+ax.set_title("Objective value in EUR for varying property owner's interest rates",
                          fontsize=8)
 
 ax.set_ylim([0, 220000])
 group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
-    int(x)).replace(',', ' '))
+    int(x)))
 
 ax.yaxis.set_major_formatter(group_thousands)
 

@@ -45,7 +45,7 @@ data.plot.bar(stacked=True, ax=fig_left_up, title=None, legend=False,
 fig_left_up.set_xlabel("")
 fig_left_up.set_ylabel("")
 group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
-    int(x)).replace(',', ' '))
+    int(x)))
 fig_left_up.yaxis.set_major_formatter(group_thousands)
 fig_left_up.set_title("Governance's total costs in EUR", fontsize=6, y=0.95)
 fig_left_up.tick_params("x", labelrotation=0)
@@ -104,8 +104,7 @@ data.plot.bar(stacked=True, ax=fig_right_up, title=None, legend=False,
               cmap=cmap, linewidth=0., edgecolor="black")
 fig_right_up.set_xlabel("")
 fig_right_up.set_ylabel("")
-group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
-    int(x)).replace(',', ' '))
+
 fig_right_up.yaxis.set_major_formatter(group_thousands)
 fig_right_up.set_title("Investment grant in EUR", fontsize=6, y=0.95)
 fig_right_up.tick_params(axis='x',  which='both', top=False)
@@ -137,8 +136,7 @@ Lines[2].set_linestyle("dotted")
 
 fig_left_down.set_xlabel("")
 fig_left_down.set_ylabel("")
-group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
-    int(x)).replace(',', ' '))
+
 fig_left_down.yaxis.set_major_formatter(group_thousands)
 fig_left_down.set_title("Subsidy payment in EUR/unit", fontsize=6, y=0.95)
 fig_left_down.tick_params("x", labelrotation=0)
@@ -167,8 +165,7 @@ data = pyam.IamDataFrame("(d).xlsx")
 data.plot(ax=fig_right_down, title=None, legend=False, color="#FFB319")
 fig_right_down.set_xlabel("")
 fig_right_down.set_ylabel("")
-group_thousands = tkr.FuncFormatter(lambda x, pos: '{:0,d}'.format(
-    int(x)).replace(',', ' '))
+
 fig_right_down.yaxis.set_major_formatter(group_thousands)
 fig_right_down.set_title("Rent revenues in EUR",
                          fontsize=6, y=0.95)

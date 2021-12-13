@@ -4,7 +4,7 @@
 \begin{document}
 \begin{frontmatter}
 
-\title{Equitable decarbonization of heat supply in residential multi-apartment rental buildings: Optimal subsidy allocation between landlord and tenants}
+\title{Equitable decarbonization of heat supply in residential multi-apartment rental buildings: Optimal subsidy allocation between the property owner and tenants}
 \author[1]{Sebastian Zwickl-Bernhard\corref{cor1}}
 \ead{zwickl@eeg.tuwien.ac.at}
 \author[1]{Hans Auer}
@@ -13,11 +13,11 @@
 \address[1]{Energy Economics Group (EEG), Technische Universität Wien, Gusshausstrasse 25-29/E370-3, 1040 Wien, Austria}
 
 \begin{abstract}
-	The core objective of this work is to demonstrate equitable decarbonization of heat supply in residential multi-apartment rental buildings. A modeling framework is developed determining a socially balanced financial governance's support strategy between the building owner (landlord) and tenants to trigger a heating system change. The results of different decarbonization scenarios of a partly renovated old building switching from gas-fired heat supply either to the district heating network or being equipped with a heat pump system show that an equitable heating system change is possible, but with massive public subsidy payments. Particularly, the investment grant to the landlord and additional rent-related revenues due to building renovation are decisive for the profitability of the investment. Simultaneously, subsidy payments to the tenants are required at the beginning of the investment period to limit their energy and rent-related spendings. Results also show that the heat pump alternative is not competitive compared to district heating, even in case of extensive retrofitting of the building. Allocating the costs of inaction (opportunity costs associated with rising CO\textsubscript{2} prices) between the governance, landlord, and tenants turns out as an important lever as required subsidy payments can be reduced significantly.
+	The core objective of this work is to demonstrate equitable decarbonization of heat supply in residential multi-apartment rental buildings. A modeling framework is developed determining a socially balanced financial governance support strategy between the property owner and tenants to trigger a heating system change. The results of different decarbonization scenarios of a partly renovated old building switching from gas-fired heat supply to either the district heating network or being equipped with a heat pump system show that an equitable heating system change is possible, but with massive public subsidy payments. Particularly, the investment grant to the property owner and additional rent-related revenues due to building renovation are decisive for the profitability of the investment. Simultaneously, subsidy payments to the tenants are required at the beginning of the investment period to limit their energy and rent-related spendings. Results also show that the heat pump alternative is not competitive compared with district heating, even in case of extensive retrofitting of the building. Allocating the costs of inaction (opportunity costs associated with rising CO\textsubscript{2} prices) between the governance, property owner, and tenants turns out as an important lever, as required subsidy payments can be reduced significantly.
 \end{abstract}
 
 \begin{keyword}
-	Equitability, decarbonization, residential, heat supply, subsidization, heat system change, landlord, tenants
+	Equitability, decarbonization, residential, heat supply, subsidy payments, heat system change, property owner, tenants
 	
 \end{keyword}
 \end{frontmatter}
@@ -38,7 +38,7 @@
 		\hline
 		Decision variables\\
 		\hline
-		{$\Psi$} & Investment grant to the landlord & \SI{}{EUR}\\
+		{$\Psi$} & Investment grant to the property owner & \SI{}{EUR}\\
 		{$\Omega_{y,m}$} & Subsidy payment to a tenant in $y$ and $m$ & \SI{}{EUR}\\
 		{$d_{y,m}$} & Total heat demand per tenant/unit in $y$ and $m$& \SI{}{kWh}\\
 		{$q_{y,m}$} & Heat demand supplied by the new heating system alternative in $y$ and $m$& \SI{}{kWh}\\
@@ -48,7 +48,7 @@
 		Relevant parameters\\
 		\hline
 		{$n$} & Number of tenants within the multi-apartment building & \SI{}{1}\\
-		{$i$} & Interest rate of an agent (governance, landlord, tenant)& \SI{}{\%}\\
+		{$i$} & Interest rate of an agent (governance, property owner, tenant)& \SI{}{\%}\\
 		{$d_{y,m}$} & Total heat demand per unit in $y$ and $m$ & \SI{}{kWh}\\
 		{$\alpha_{m}$} & Load factor (ratio total and peak demand) in $m$ & \SI{}{1}\\
 		{$c_{alt}$} & Investment costs of the heat system alternative& \SI{}{EUR \per kW}\\
@@ -143,7 +143,7 @@ We consider passive retrofitting measures in this study in a very simplified way
 			CO\textsubscript{2} price (2025-2034) & \SI{}{EUR \per tCO_{2}} & \SI{50}{}\\
 			CO\textsubscript{2} price (2035-2040) & \SI{}{EUR \per tCO_{2}} & \SI{100}{}\\
 			Natural gas price & \SI{}{EUR \per kWh} & \SI{0.05}{}\\
-			Electricty price & \SI{}{EUR \per kWh} & \SI{0.2}{}\\
+			Electricity price & \SI{}{EUR \per kWh} & \SI{0.2}{}\\
 			Specific emissions$\vert$Electricity & \SI{}{kgCO_{2} \per kWh} & \SI{0.130}{}\\
 			\bottomrule
 	\end{tabular}}
@@ -152,19 +152,19 @@ We consider passive retrofitting measures in this study in a very simplified way
 \end{table}
 
 \section{Varying allocation of the costs of inaction}\label{app:varying}
-This work considers the CO\textsubscript{2} price related costs as the costs of inaction and opportunity costs (OC) respectively. Hence, Equation \ref{app:eq:inaction} describes the costs of inaction per year $y$ and month $m$
+This work considers the CO\textsubscript{2} price-related costs as the costs of inaction and opportunity costs (OC) respectively. Hence, Equation \ref{app:eq:inaction} describes the costs of inaction per year $y$ and month $m$
 
 \begin{align}\label{app:eq:inaction}
 	OC_{y,m} =    \gamma_{init} \cdot p_{y}^{CO\textsubscript{2}} \cdot d_{y,m}
 \end{align}
 
-where $\gamma_{init}$ is the specific emissions of the initial heating system (i.e., natural gas) and $p_{y}^{CO\textsubscript{2}}$ the CO\textsubscript{2} price in year $y$ and month $m$. Exemplarily, Equation \ref{app:eq:landlord1} shows the landlord's net present value in total when a part of the total OC is allocated to the landlord's net present value
+where $\gamma_{init}$ is the specific emissions of the initial heating system (i.e., natural gas) and $p_{y}^{CO\textsubscript{2}}$ the CO\textsubscript{2} price in year $y$ and month $m$. Exemplarily, Equation \ref{app:eq:landlord1} shows the property owner's net present value in total when a part of the total OC is allocated to the property owner's net present value
 
 \begin{align}\label{app:eq:landlord1}
 	OC_{l} =  \sum_{y} \sum_{m} s_l \cdot \frac{OC_{y,m}}{(1+i_l)^y} 
 \end{align}
 
-where $s_l$ is the share in the costs of inaction borne by the landlord. Consequently, Equation \ref{c:npv} is modified as follows by considering the landlord's costs of inaction.
+where $s_l$ is the share in the costs of inaction borne by the property owner. Consequently, Equation \ref{c:npv} is modified as follows by considering the property owner's costs of inaction.
 
 \begin{align}\label{app:eq:landlord}
 	-OC_{l} =  -\zeta + \sum_{y} \sum_{m} \frac{1}{(1+i_l)^y} \cdot \lambda_{y,m}
