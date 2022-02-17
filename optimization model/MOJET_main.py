@@ -15,10 +15,12 @@ _data_folder = Path("data")
 _alt = "District heating"
 # _alt = "Heat pump"
 
-# _scenario = "Directed Transition"
+_scenario = "Directed Transition"
 # _scenario = "Societal Commitment"
-_scenario = "Gradual Development"
+# _scenario = "Gradual Development"
 # _scenario = "Low CO2 price"
+
+_df_val = pyam.IamDataFrame(_data_folder / "input-values.xlsx")
 
 if _scenario == "Gradual Development":
     _df_time = pyam.IamDataFrame(
@@ -26,11 +28,20 @@ if _scenario == "Gradual Development":
 if _scenario == "Low CO2 price":
     _df_time = pyam.IamDataFrame(
         _data_folder / "_input-time-series_LOW.xlsx")
-if _scenario in ["Societal Commitment", "Directed Transition"]:
+if _scenario == "Directed Transition":
     _df_time = pyam.IamDataFrame(
         _data_folder / "input-time-series.xlsx")
+    print("Directed Transition")
+if (_scenario == "Societal Commitment") and (_alt == "Heat pump"):
+    _df_time = pyam.IamDataFrame(
+        _data_folder / "input-time-seriesSC.xlsx")
+    _df_val = pyam.IamDataFrame(_data_folder / "input-valuesSC.xlsx")
+    print("Societal Commitment scenario")
+    
+    
+    
 
-_df_val = pyam.IamDataFrame(_data_folder / "input-values.xlsx")
+
 
 
 """Sensitivity analysis"""

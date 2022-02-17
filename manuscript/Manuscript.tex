@@ -40,7 +40,7 @@
 		\hline
 		{$\Psi$} & Investment grant to the property owner & \SI{}{EUR}\\
 		{$\Omega_{y,m}$} & Subsidy payment to a tenant in $y$ and $m$ & \SI{}{EUR}\\
-		{$d_{y,m}$} & Total heat demand per tenant/unit in $y$ and $m$& \SI{}{kWh}\\
+		{$\lambda_{y,m}$} & Rent-related revenues of the property owner in $y$ and $m$ & \SI{}{EUR}\\
 		{$q_{y,m}$} & Heat demand supplied by the new heating system alternative in $y$ and $m$& \SI{}{kWh}\\
 		{$\pi$} & Capacity of the new heating system alternative & \SI{}{kW}\\
 		{$r_{y,m}$} & Rent charge adjustment in $y$ and $m$ & \SI{}{EUR\per m^2}\\
@@ -81,52 +81,9 @@ This project has received funding from the European Union's Horizon 2020 Researc
 \setcounter{table}{0}
 \setcounter{figure}{0}
 \newpage
-\section{Data}\label{app:data}
-Table \ref{tab:a1} shows specific emissions, energy prices, and further technical assumptions. The values correspond to the initial input parameters in $2025$ in our analysis. Furthermore, it is assumed that the specific emissions of electricity and district heating decrease linearly between $2025$ and the corresponding decarbonization target year of the scenario ($2040$ in the \textit{Directed Transition} and \textit{Societal Commitment} scenario as well as $2050$ in the \textit{Gradual Development scenario}). The energy price development of electricity, natural gas, and district heating is in line with the assumptions in \cite{fina2019profitability}.  According to this, the (retail) electricity price increases by \SI{2.37}{\%} and the district heating price by \SI{5}{\%} per year. Additionally, the CO\textsubscript{2} price increases the energy price according to the specific emissions per year. Table \ref{tab:time} shows the CO\textsubscript{2} price development in the different scenarios.
+\section{\added{Illustration of the model}}\label{appendix:ill}
+This section aims to test \added{and illustrate} the presented model and its functionalities. However, a model validation using existing empirical data cannot be applied in this case. There is simply a lack of comparable data from real world examples. Therefore, an illustrative case study is chosen to demonstrate the main functionalities and to verify the model. We assume a single property owner and a tenant in a representative single-family house switching to a heat pump. In this simple verification example, it is assumed that the property owner's and tenant's interest rate is equal (\SI{3}{\%}). A detailed description of the empirical settings can be found in \ref{tab:a2}. Figure \ref{val:npv} shows the net present value of the financial support for both property owner (a) and tenant (b).
 
-\begin{table}[h]
-	\centering
-	\scalebox{0.85}{
-		\renewcommand{\arraystretch}{1.35}
-		\begin{tabular}{llrr}
-			\toprule 
-			Variable & Unit & Value & Ref.\\\hline
-			Specific emissions$\vert$Electricity & \SI{}{kgCO_{2} \per kWh} & \SI{0.130}{}&\cite{emissions}\\
-			Specific emissions$\vert$District heating & \SI{}{kgCO_{2} \per kWh} & \SI{0.132}{}& \cite{dh_emissions}\\
-			Specific emissions$\vert$Natural gas & \SI{}{kgCO_{2} \per kWh} & \SI{0.220}{}&\cite{emissions}\\
-			Price$\vert$District heating & \SI{}{EUR \per kWh} & \SI{0.047}{}& \cite{dh_prices}\\
-			Price$\vert$Natural gas & \SI{}{EUR \per kWh} & \SI{0.050}{}& \cite{gas_prices}\\
-			Price$\vert$Electricity & \SI{}{EUR \per kWh} & \SI{0.200}{}& \cite{electricity_prices}\\
-			Coefficient of performance (average) & \SI{}{1} & \SI{2.35}{}& \cite{cop_hp}\\
-			\bottomrule
-	\end{tabular}}
-	\caption{Relevant economic parameters and further empirical settings for Austria in 2020}
-	\label{tab:a1}
-\end{table}
-
-
-
-\begin{table}[h]
-	\centering
-	\scalebox{0.85}{
-		\renewcommand{\arraystretch}{1.35}
-		\begin{tabular}{c|c|c|c|c}
-			\toprule 
-			Scenario ($\SI{}{EUR \per tCO_2}$)& $2020$ & $2025-30$ & $2030-35$ & $2035-40$\\\hline
-			\textit{Directed Transition} & $30$ & $196$ & $357$ & $510$\\
-			\textit{Societal Commitment} & $30$ & $62$ & $137$ & $273$\\
-			\textit{Gradual Development} & $30$ & $83$ & $128$ & $183$\\
-			\textit{Low Development}  & $30$ & $60$ & $70$ & $80$\\
-			\bottomrule
-	\end{tabular}}
-	\caption{CO\textsubscript{2} price development}
-	\label{tab:time}
-\end{table}
-
-\section{Passive building retrofitting measures}\label{app:passive}
-We consider passive retrofitting measures in this study in a very simplified way and focus here on the insulation of the building skin and the wall to neighboring buildings only. The economic and technical assumptions are oriented to the study from Fina et al. in \cite{fina2020profitability}. The following relationships between the specific heat demand and the heat pump's (average) coefficient of performance (COP) are assumed: \SI{130}{kWh \per m^2} (COP$=2.5$), \SI{115}{kWh \per m^2} ($3.0$), \SI{100}{kWh \per m^2} ($3.5$). 
-
-\section{Empirical settings of the case example}\label{app:verify}
 \begin{table}[h]
 	\centering
 	\scalebox{0.8}{
@@ -150,6 +107,50 @@ We consider passive retrofitting measures in this study in a very simplified way
 	\caption{Case example's parameters and assumptions}
 	\label{tab:a2}
 \end{table}
+
+\begin{figure}[h]
+	\begin{subfigure}[c]{0.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/3_Methodology/Validate-Landlord.eps}
+		\subcaption{Development of property owner's net present value}
+		\label{fig:landlord}
+	\end{subfigure}
+	\begin{subfigure}[c]{0.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/3_Methodology/Validate-Tenant.eps}
+		\subcaption{Comparison of tenant's net present value}
+		\label{fig:tenant}
+	\end{subfigure}
+	\caption{Property owner's and tenant's net present value and equal financial support. The property owner reaches a net present value equal to zero in 2040 resulting from an investment grant and adjusted rent-charge related revenues. The tenant's net present value remains constant compared to the existing (e.g., gas-fired) heating system due to heating costs subsidy payments.}
+	\label{val:npv}
+\end{figure}
+
+Until $2040$, both agents receive equal financial support with a total of \SI{13750}{EUR}. One-fifth of the property owner's support is paid as an investment grant directly and four-fifths as rent-charge related revenues from the tenants. The tenant receives a heating costs subsidy. In sum, the governance pays \SI{16500}{EUR}. Thus, the total level of financial support for exchanging the heating system results exactly in (i) a property owner's net present value of cash flows equal to zero within the time horizon of 15 years (see Figure \ref{fig:landlord}) and (ii) a constant remaining net present value of the tenant's energy and rent charges compared with the existing (e.g., gas-fired) heating system (see Figure \ref{fig:tenant}). 
+
+\section{CO\textsubscript{2} prices between 2020 and 2040}\label{app:data}
+
+\begin{table}[h]
+	\centering
+	\scalebox{0.85}{
+		\renewcommand{\arraystretch}{1.35}
+		\begin{tabular}{c|c|c|c|c}
+			\toprule 
+			Scenario ($\SI{}{EUR \per tCO_2}$)& $2020$ & $2025-30$ & $2030-35$ & $2035-40$\\\hline
+			\textit{Directed Transition} & $30$ & $196$ & $357$ & $510$\\
+			\textit{Societal Commitment} & $30$ & $62$ & $137$ & $273$\\
+			\textit{Gradual Development} & $30$ & $83$ & $128$ & $183$\\
+			\textit{Low Development}  & $30$ & $60$ & $70$ & $80$\\
+			\bottomrule
+	\end{tabular}}
+	\caption{CO\textsubscript{2} price development}
+	\label{tab:time}
+\end{table}
+
+\section{Passive building retrofitting measures}\label{app:passive}
+We consider passive retrofitting measures in this study in a very simplified way and focus here on the insulation of the building skin and the wall to neighboring buildings only. The economic and technical assumptions are oriented to the study from Fina et al. in \cite{fina2020profitability}. \added{Accordingly, we assume passive retrofitting investment costs of} \SI{1.75}{EUR \per kWh}. \added{Besides,} the following relationships between the specific heat demand and the heat pump's (average) coefficient of performance (COP) are assumed: \SI{130}{kWh \per m^2} (COP$=2.5$), \SI{115}{kWh \per m^2} ($3.0$), \SI{100}{kWh \per m^2} ($3.5$). 
+
+%\section{Empirical settings of the case example}\label{app:verify}
+
 
 \section{Varying allocation of the costs of inaction}\label{app:varying}
 This work considers the CO\textsubscript{2} price-related costs as the costs of inaction and opportunity costs (OC) respectively. Hence, Equation \ref{app:eq:inaction} describes the costs of inaction per year $y$ and month $m$
@@ -175,4 +176,8 @@ A similar logic is developed in the modification of the tenant's net present val
 \begin{align}\label{c:app:tenant}
 	K_{alt} = K_{init} - OC_{t}
 \end{align}
+
+
+
+
 \end{document}

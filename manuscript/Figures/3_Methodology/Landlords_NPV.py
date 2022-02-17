@@ -79,30 +79,30 @@ ax.annotate("",
                             color="#716F81"),
             )
 
-ax.text(x=9.75, y=-7250, s=r'$\frac{4}{5}$',
-        fontsize=13, rotation=30, va="center",
+ax.text(x=9.75, y=-7250, s=r'$11,000$',
+        fontsize=10, rotation=30, va="center",
         ha="center",
         color="#716F81")
 
-ax.text(x=0.75, y=-12436.5, s=r'$\frac{1}{5}$', fontsize=13, rotation=0,
+ax.text(x=1.75, y=-12436.5, s=r'$2,750$', fontsize=10, rotation=0,
         va="center",
         ha="center",
         color="#716F81")
 
-ax.text(x=2.5, y=-6750, s=r'+13,750', fontsize=10, rotation=0,
+ax.text(x=3.5, y=-6250, s=r'+13,750', fontsize=10, rotation=0,
         va="center",
         ha="center",
         color="black"
         )
 
 
-ax.plot([0.75, 3], 2*[-13750], linestyle="dashed", color="#716F81",
+ax.plot([0.75, 4], 2*[-13750], linestyle="dashed", color="#716F81",
         linewidth=0.5)
-ax.plot([2, 14.25], 2*[0], linestyle="dashed", color="#716F81", linewidth=0.5)
+ax.plot([3, 14.25], 2*[0], linestyle="dashed", color="#716F81", linewidth=0.5)
 
 ax.annotate("",
-            xy=(2.5, -13750), xycoords='data',
-            xytext=(2.5, -11000), textcoords='data',
+            xy=(3.5, -13750), xycoords='data',
+            xytext=(3.5, -10000), textcoords='data',
             arrowprops=dict(arrowstyle="->",
                             connectionstyle="arc3",
                             linewidth=0.5,
@@ -111,8 +111,8 @@ ax.annotate("",
             )
 
 ax.annotate("",
-            xy=(2.5, -0), xycoords='data',
-            xytext=(2.5, -4500), textcoords='data',
+            xy=(3.5, -0), xycoords='data',
+            xytext=(3.5, -4500), textcoords='data',
             arrowprops=dict(arrowstyle="->",
                             connectionstyle="arc3",
                             linewidth=0.5,
