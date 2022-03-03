@@ -1,7 +1,0 @@
-discussion: einpreisen der frequenz in interest rate des landlords.
-verbale beschreibung des modells ==> extrem hineingehen und deckeln und stattdessen in den investment grant. hinein führen zu den ergebnissen. energiepolitik. 
-future work: investment grant nur bei gebäudesanierung/wärmedämmung + erweiterung des modells (2050 neutralität)
-umsichtiges government, demand-seitig verändern, beim fenster "herausheizen"?!
-schluss gegenüberstellen: staat vergisst wärmedämmung und einmal denkt er mit
-wärmedämmung mitdenken und was ist delta an npv
-modelllösung eventuell nicht lösbar aber mit aufteilung der co2 emissions kosten schon, was müsste agent 1 erhalten. 
