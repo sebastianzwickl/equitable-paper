@@ -192,26 +192,5 @@ The GD scenario aims at \replaced{limiting the}{achieving a} global temperature 
 
 In addition to the three openENTRANCE scenarios, the so-called "Low CO\textsubscript{2} price development" (LD) scenario is examined. This scenario neglects any remaining European CO\textsubscript{2} budget and misses both the  \SI{1.5}{\degreeCelsius} and \SI{2.0}{\degreeCelsius} climate target; thus, decarbonizing the electricity and heating sector develops only sluggishly. Therefore, neither the CO\textsubscript{2} price nor the specific emissions of electricity and district heating significantly changed with today's values. Again, both heating system alternatives are studied. The CO\textsubscript{2} price in this scenario is between \SI{60}{EUR \per tCO_{2}} (in 2025) and \SI{90}{EUR \per tCO_{2}} (in 2040). No target year for achieving deep decarbonization of the European electricity and heating sector is set. 
 
-%Table \ref{tab:scenarios} summarizes the scenario settings and the corresponding heating system alternatives. 
-%
-%\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
-%\definecolor{Gray}{gray}{0.95}
-%\begin{table}[h]
-%	\centering
-%	\setlength{\extrarowheight}{.5em}
-%	\scalebox{0.85}{
-%		\begin{tabular}{cccc}
-%			\toprule
-%			Scenario  & Climat target & Heat pump (HP) & District heating (DH) \\\hline
-%			\textit{Directed Transition} (DT) & \SI{1.5}{°C} & - & \cellcolor{Gray} \checkmark\\ 
-%			\textit{Societal Commitment} (SC) & \SI{1.5}{°C} & \cellcolor{Gray} \checkmark & -\\
-%			\textit{Gradual Development} (GD) & \SI{2.0}{°C} & \cellcolor{Gray} \checkmark & \cellcolor{Gray} \checkmark\\
-%			Low CO\textsubscript{2} price (LD) & none & \cellcolor{Gray} \checkmark & \cellcolor{Gray} \checkmark\\
-%			\bottomrule
-%	\end{tabular}}
-%	\caption{Four scenarios studied in this work and the corresponding scenario specific heating system alternative (marked by the check)}
-%	\label{tab:scenarios}
-%\end{table}
-
 \subsection{Open-source programming environment and data format}\label{met:os}
-The developed optimization model is implemented in Python 3.8.12 using the modeling framework Pyomo version 5.7.3 \cite{hart2017optimization}. It is solved with the solver Gurobi version 9.0.3. We use for data analysis the common data format template developed by the Integrated Assessment Modeling Consortium using the open-source Python package pyam \cite{huppmann2021pyam}. Note that all materials used in this study are disclosed as part of the publication at GitHub \footnote{https://github.com/sebastianzwickl}. We refer to the repository for the codebase, data collection, and further information. 
+The developed optimization model is implemented in Python 3.8.12 using the modeling framework Pyomo version 5.7.3 \cite{hart2017optimization}. It is solved with the solver Gurobi version 9.0.3. We use for data analysis the common data format template developed by the Integrated Assessment Modeling Consortium using the open-source Python package pyam \cite{huppmann2021pyam}. Note that all materials used in this study are disclosed as part of the publication at GitHub \footnote{https://github.com/sebastianzwickl}. We refer to the repository \textcolor{blue}{\cite{zwickl}} for the codebase, data collection, and further information \textcolor{blue}{(incl. underlying cost assumption data for the district heating and heat pump alternative).}
