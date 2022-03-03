@@ -16,8 +16,8 @@ This repository includes materials and methods of the paper. A working document 
 ## Overview & Abstract
 The core objective of this work is to demonstrate equitable decarbonization of heat supply in residential multi-apartment rental buildings. A modeling framework is developed determining a socially balanced financial governance support strategy between the property owner and tenants to trigger a heating system change. The results of different decarbonization scenarios of a partly renovated old building switching from gas-fired heat supply to either the district heating network or being equipped with a heat pump system show that an equitable heating system change is possible, but with massive public subsidy payments. Particularly, the investment grant to the property owner and additional rent-related revenues due to building renovation are decisive for the profitability of the investment. Simultaneously, subsidy payments to the tenants are required at the beginning of the investment period to limit their energy and rent-related spendings. Results also show that the heat pump alternative is not competitive compared with district heating, even in case of extensive retrofitting of the building. Allocating the costs of inaction (opportunity costs associated with rising CO2 prices) between the governance, property owner, and tenants turns out as an important lever, as required subsidy payments can be reduced significantly.
 
-<p align="center" width="85%">
-	<img src="./_static//Sketch.jpg" width=50% height=50% align="center" alt="Sketch" />
+<p align="center" width="100%">
+	<img src="./_static//Sketch.png" width=50% height=50% align="center" alt="Sketch" />
 </p>
 
 ## Acknowledgement
