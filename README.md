@@ -4,14 +4,9 @@ Copyright (c) 2021 Energy Economics Group (EEG), Technische Universität Wien, S
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![DOI](http://img.shields.io/badge/DOI-10.1016/j.enbuild.2022.112013.svg)](https://doi.org/10.1016/j.enbuild.2022.112013)
 
-This repository includes materials and methods of the paper. A working document of the paper's structure can be found [here](work-doc/Structure-of-the-paper.docx).
-
-## Publication status of the manuscript (submitted to _Energy and Buildings_ )
-- [x] Submitted to Journal (2021-12-13)   
-- [x] Manuscript number **ENB-D-21-03224** (2021-12-13)
-- [x] With Editor (2021-12-13)
-- [x] Under review (2021-12-16)
+This repository includes materials and methods of the paper published in _Energy and Buildings_.
 
 ## Overview & Abstract
 The core objective of this work is to demonstrate equitable decarbonization of heat supply in residential multi-apartment rental buildings. A modeling framework is developed determining a socially balanced financial governance support strategy between the property owner and tenants to trigger a heating system change. The results of different decarbonization scenarios of a partly renovated old building switching from gas-fired heat supply to either the district heating network or being equipped with a heat pump system show that an equitable heating system change is possible, but with massive public subsidy payments. Particularly, the investment grant to the property owner and additional rent-related revenues due to building renovation are decisive for the profitability of the investment. Simultaneously, subsidy payments to the tenants are required at the beginning of the investment period to limit their energy and rent-related spendings. Results also show that the heat pump alternative is not competitive compared with district heating, even in case of extensive retrofitting of the building. Allocating the costs of inaction (opportunity costs associated with rising CO2 prices) between the governance, property owner, and tenants turns out as an important lever, as required subsidy payments can be reduced significantly.
