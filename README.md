@@ -5,6 +5,7 @@ Copyright (c) 2021 Energy Economics Group (EEG), Technische Universität Wien, S
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![DOI:10.1016/j.enbuild.2022.112013](http://img.shields.io/badge/DOI-10.1016/j.enbuild.2022.112013-5F7464.svg)](https://doi.org/10.1016/j.enbuild.2022.112013)
+
 This repository includes materials and methods of the paper published in _Energy and Buildings_.
 
 ## Overview & Abstract
